@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanatan Studio — Grow Your Devotional Events</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --saffron: #E8621A;
+    --saffron-light: #F4894A;
+    --gold: #C4920A;
+    --gold-light: #F5C842;
+    --ivory: #FDF6EC;
+    --ivory-dark: #F5ECD8;
+    --ink: #1A1208;
+    --ink-soft: #3D2E0F;
+    --muted: #7A6245;
+    --white: #FFFFFF;
+    --card-bg: #FFFDF8;
+    --border: rgba(196,146,10,0.18);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--ivory);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(253,246,236,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; font-weight: 700;
+    color: var(--saffron);
+    letter-spacing: -0.02em;
+  }
+  .nav-brand span { color: var(--gold); }
+  .nav-cta {
+    background: var(--saffron);
+    color: var(--white);
+    border: none; border-radius: 6px;
+    padding: 0.5rem 1.25rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem; font-weight: 500;
+    cursor: pointer; text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--saffron-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 92vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem 3rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232,98,26,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-om {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.15;
+    letter-spacing: 0.1em;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    background: var(--ivory-dark);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.3rem 1rem;
+    font-size: 0.8rem; font-weight: 500;
+    color: var(--saffron);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+    max-width: 720px;
+    margin-bottom: 1.25rem;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--saffron);
+  }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .btn-primary {
+    background: var(--saffron);
+    color: var(--white);
+    border: none; border-radius: 8px;
+    padding: 0.85rem 2rem;
+    font-size: 1rem; font-weight: 500;
+    cursor: pointer; text-decoration: none;
+    transition: transform 0.15s, background 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--saffron-light); transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink-soft);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.85rem 2rem;
+    font-size: 1rem; font-weight: 500;
+    cursor: pointer; text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { background: var(--ivory-dark); border-color: var(--gold); }
+
+  .hero-proof {
+    margin-top: 3rem;
+    display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap;
+  }
+  .proof-item { text-align: center; }
+  .proof-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; font-weight: 700;
+    color: var(--saffron);
+  }
+  .proof-label { font-size: 0.8rem; color: var(--muted); }
+
+  /* SECTION COMMON */
+  section { padding: 5rem 2rem; }
+  .section-inner { max-width: 1000px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700; line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .section-sub {
+    font-size: 1rem; color: var(--muted);
+    max-width: 520px; line-height: 1.7;
+  }
+
+  /* PROBLEM */
+  .problem { background: var(--ivory-dark); }
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem; margin-top: 3rem;
+  }
+  .problem-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .problem-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .problem-card h3 { font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
+  .problem-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+
+  /* SERVICES */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .service-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2rem 1.75rem;
+    position: relative; transition: border-color 0.2s;
+  }
+  .service-card:hover { border-color: var(--saffron); }
+  .service-card.featured {
+    border: 2px solid var(--saffron);
+  }
+  .popular-badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--saffron);
+    color: var(--white);
+    font-size: 0.7rem; font-weight: 600;
+    padding: 0.2rem 0.75rem; border-radius: 100px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .service-tier {
+    font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 0.5rem;
+  }
+  .service-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 700;
+    color: var(--ink); margin-bottom: 0.25rem;
+  }
+  .service-price {
+    font-size: 2rem; font-weight: 700;
+    color: var(--saffron); margin-bottom: 0.25rem;
+  }
+  .service-price span { font-size: 0.9rem; font-weight: 400; color: var(--muted); }
+  .service-retainer {
+    font-size: 0.8rem; color: var(--gold);
+    font-weight: 500; margin-bottom: 1.25rem;
+  }
+  .service-divider {
+    border: none; border-top: 1px solid var(--border);
+    margin: 1.25rem 0;
+  }
+  .service-features { list-style: none; }
+  .service-features li {
+    font-size: 0.875rem; color: var(--ink-soft);
+    padding: 0.35rem 0;
+    display: flex; gap: 0.6rem; align-items: flex-start;
+  }
+  .feature-check { color: var(--saffron); font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+  .service-cta {
+    margin-top: 1.75rem;
+    display: block; text-align: center;
+    padding: 0.75rem; border-radius: 8px;
+    font-size: 0.9rem; font-weight: 500;
+    text-decoration: none; transition: all 0.2s;
+    border: 1.5px solid var(--saffron);
+    color: var(--saffron);
+  }
+  .service-cta:hover { background: var(--saffron); color: var(--white); }
+  .service-card.featured .service-cta {
+    background: var(--saffron); color: var(--white);
+  }
+  .service-card.featured .service-cta:hover { background: var(--saffron-light); }
+
+  /* HOW IT WORKS */
+  .how { background: var(--ivory-dark); }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0; margin-top: 3rem; position: relative;
+  }
+  .step {
+    padding: 1.5rem 1.5rem 1.5rem 0;
+    position: relative;
+  }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem; font-weight: 700;
+    color: var(--ivory-dark);
+    -webkit-text-stroke: 1.5px var(--saffron);
+    margin-bottom: 0.75rem; line-height: 1;
+  }
+  .step h3 { font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
+  .step p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+
+  /* WHO IT'S FOR */
+  .icp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem; margin-top: 3rem;
+  }
+  .icp-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+  }
+  .icp-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .icp-card h3 { font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 0.35rem; }
+  .icp-card p { font-size: 0.8rem; color: var(--muted); }
+
+  /* PITCH BLOCK */
+  .pitch-block {
+    background: var(--ink);
+    color: var(--white);
+  }
+  .pitch-inner {
+    max-width: 700px; margin: 0 auto; text-align: center;
+  }
+  .pitch-block .section-label { color: var(--gold-light); }
+  .pitch-block .section-title { color: var(--white); }
+  .pitch-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+    border-left: 3px solid var(--saffron);
+    padding-left: 1.25rem;
+    text-align: left;
+    margin: 2rem 0;
+    line-height: 1.6;
+  }
+  .pitch-pain {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem; margin: 2rem 0;
+    text-align: left;
+  }
+  .pain-item, .gain-item {
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px; padding: 1rem 1.25rem;
+    font-size: 0.875rem;
+  }
+  .pain-item { border-left: 3px solid rgba(255,80,80,0.5); }
+  .gain-item { border-left: 3px solid var(--saffron); }
+  .pain-item .label, .gain-item .label {
+    font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(255,255,255,0.4); margin-bottom: 0.5rem;
+  }
+  .pain-item p, .gain-item p { color: rgba(255,255,255,0.8); line-height: 1.55; }
+
+  /* INSTAGRAM SECTION */
+  .insta { background: var(--ivory-dark); }
+  .insta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem; margin-top: 2rem;
+  }
+  .insta-post {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
+  .post-type {
+    font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--saffron); margin-bottom: 0.4rem;
+  }
+  .post-caption { color: var(--ink-soft); line-height: 1.5; }
+
+  /* CTA FOOTER */
+  .cta-footer {
+    background: var(--saffron);
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+  .cta-footer h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700; color: var(--white);
+    margin-bottom: 1rem;
+  }
+  .cta-footer p { color: rgba(255,255,255,0.8); margin-bottom: 2rem; font-size: 1rem; }
+  .btn-white {
+    background: var(--white);
+    color: var(--saffron);
+    border: none; border-radius: 8px;
+    padding: 0.9rem 2.25rem;
+    font-size: 1rem; font-weight: 600;
+    cursor: pointer; text-decoration: none;
+    display: inline-block;
+    transition: transform 0.15s;
+  }
+  .btn-white:hover { transform: translateY(-2px); }
+
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 1.5rem 2rem;
+    font-size: 0.8rem;
+  }
+  footer a { color: var(--gold-light); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .pitch-pain { grid-template-columns: 1fr; }
+    .insta-grid { grid-template-columns: 1fr; }
+    .hero-proof { gap: 1.5rem; }
+    nav { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Sanatan<span>Studio</span></div>
+  <a href="#contact" class="nav-cta">Book a free call</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-om">ॐ</div>
+  <div class="hero-eyebrow">Digital services for devotional events</div>
+  <h1>You fill the hall.<br><em>We handle everything online.</em></h1>
+  <p class="hero-sub">Websites, ticket booking, WhatsApp automation, and Instagram management — built specifically for bhajan clubs, kirtan organisers, and spiritual event creators.</p>
+  <div class="hero-actions">
+    <a href="#services" class="btn-primary">See packages &amp; pricing</a>
+    <a href="#pitch" class="btn-secondary">Why you need this</a>
+  </div>
+  <div class="hero-proof">
+    <div class="proof-item">
+      <div class="proof-num">₹0</div>
+      <div class="proof-label">WhatsApp group earnings saved</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">24h</div>
+      <div class="proof-label">Stories vanish after this</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">0</div>
+      <div class="proof-label">Attendees you can reach next event</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="section-inner">
+    <div class="section-label">The real problem</div>
+    <h2 class="section-title">After every event, you start from zero.</h2>
+    <p class="section-sub">You promote brilliantly on WhatsApp and Instagram. The event sells out. Then it disappears — and you have no way to reach those people again.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon">📱</div>
+        <h3>Stories vanish in 24 hours</h3>
+        <p>Your event announcement disappears before most people even see it.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">📋</div>
+        <h3>No attendee list</h3>
+        <p>You have no database of people who love your events. Every time, you start from scratch.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">💸</div>
+        <h3>Google Forms for tickets</h3>
+        <p>Manual UPI collection, no reminders, no confirmation — buyers worry if their booking is real.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🔍</div>
+        <h3>Invisible on Google</h3>
+        <p>When someone searches "bhajan event in Mumbai," you don't appear. Strangers can't find you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section>
+  <div class="section-inner">
+    <div class="section-label">Who we work with</div>
+    <h2 class="section-title">Built for the devotional event world</h2>
+    <div class="icp-grid">
+      <div class="icp-card">
+        <div class="icp-icon">🎶</div>
+        <h3>Bhajan clubs &amp; kirtan groups</h3>
+        <p>Running weekly or monthly gatherings with growing communities</p>
+      </div>
+      <div class="icp-card">
+        <div class="icp-icon">🎪</div>
+        <h3>Bhajan clubbing organisers</h3>
+        <p>Selling tickets for large-scale devotional events in city venues</p>
+      </div>
+      <div class="icp-card">
+        <div class="icp-icon">🙏</div>
+        <h3>Katha &amp; pravachan speakers</h3>
+        <p>Building a following and monetising live or online sessions</p>
+      </div>
+      <div class="icp-card">
+        <div class="icp-icon">🛕</div>
+        <h3>Temple utsav committees</h3>
+        <p>Organising annual festivals, Janmashtami nights, Navratri events</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES / PRICING -->
+<section id="services" style="background: var(--ivory-dark);">
+  <div class="section-inner">
+    <div class="section-label">Packages &amp; pricing</div>
+    <h2 class="section-title">Simple, honest pricing</h2>
+    <p class="section-sub">One-time setup to get you online. Monthly retainer to keep growing.</p>
+    <div class="services-grid">
+
+      <!-- Starter -->
+      <div class="service-card">
+        <div class="service-tier">Starter</div>
+        <div class="service-name">Digital Starter Pack</div>
+        <div class="service-price">₹12,000 <span>one-time</span></div>
+        <hr class="service-divider">
+        <ul class="service-features">
+          <li><span class="feature-check">✦</span>Link-in-bio landing page with event listing</li>
+          <li><span class="feature-check">✦</span>Google Business Profile setup</li>
+          <li><span class="feature-check">✦</span>WhatsApp Business profile optimisation</li>
+          <li><span class="feature-check">✦</span>1 branded event poster template (editable)</li>
+          <li><span class="feature-check">✦</span>Instagram bio rewrite</li>
+        </ul>
+        <a href="#contact" class="service-cta">Get started</a>
+      </div>
+
+      <!-- Growth — Featured -->
+      <div class="service-card featured">
+        <div class="popular-badge">Most popular</div>
+        <div class="service-tier">Growth</div>
+        <div class="service-name">Event Organiser Pack</div>
+        <div class="service-price">₹25,000 <span>one-time</span></div>
+        <div class="service-retainer">+ ₹5,000/month retainer</div>
+        <hr class="service-divider">
+        <ul class="service-features">
+          <li><span class="feature-check">✦</span>Full single-page website with event calendar</li>
+          <li><span class="feature-check">✦</span>UPI payment link + RSVP form integration</li>
+          <li><span class="feature-check">✦</span>Instagram content — 12 posts/month</li>
+          <li><span class="feature-check">✦</span>WhatsApp broadcast setup for event reminders</li>
+          <li><span class="feature-check">✦</span>Post-event follow-up message sequence</li>
+          <li><span class="feature-check">✦</span>Monthly performance report</li>
+        </ul>
+        <a href="#contact" class="service-cta">Get started</a>
+      </div>
+
+      <!-- Premium -->
+      <div class="service-card">
+        <div class="service-tier">Premium</div>
+        <div class="service-name">Growth Pack</div>
+        <div class="service-price">₹45,000 <span>one-time</span></div>
+        <div class="service-retainer">+ ₹10,000/month retainer</div>
+        <hr class="service-divider">
+        <ul class="service-features">
+          <li><span class="feature-check">✦</span>Full website + ticketing (Townscript/Insider.in)</li>
+          <li><span class="feature-check">✦</span>Instagram + YouTube Shorts management</li>
+          <li><span class="feature-check">✦</span>WhatsApp automation — full attendee lifecycle</li>
+          <li><span class="feature-check">✦</span>Email newsletter setup (monthly)</li>
+          <li><span class="feature-check">✦</span>SEO for "bhajan events in [your city]"</li>
+          <li><span class="feature-check">✦</span>Sponsorship deck template (PDF)</li>
+        </ul>
+        <a href="#contact" class="service-cta">Get started</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="section-inner">
+    <div class="section-label">The process</div>
+    <h2 class="section-title">Up and running in 2 weeks</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Discovery call (free)</h3>
+        <p>30 minutes. We understand your events, your audience, and what you need most right now.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Package confirmation</h3>
+        <p>We propose the right package. 50% advance to begin work, 50% on delivery.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Build &amp; setup</h3>
+        <p>Website, automation, and content templates ready within 10–14 days.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Handover &amp; grow</h3>
+        <p>We train you on everything, then manage it monthly so you stay focused on your events.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PITCH BLOCK -->
+<section class="pitch-block" id="pitch">
+  <div class="section-inner pitch-inner">
+    <div class="section-label">The conversation that opens doors</div>
+    <h2 class="section-title" style="color: var(--white);">What to say to a prospect</h2>
+
+    <blockquote class="pitch-quote">
+      "Your events sell out. But after every event, your next one starts from zero — because you have no way to reach last month's attendees. We build the system that changes that."
+    </blockquote>
+
+    <div class="pitch-pain">
+      <div class="pain-item">
+        <div class="label">Before us</div>
+        <p>WhatsApp forwards, 24-hour stories, manual UPI collections, zero attendee database</p>
+      </div>
+      <div class="gain-item">
+        <div class="label">After us</div>
+        <p>Auto-reminders, permanent attendee list, ticket booking, growing Instagram presence</p>
+      </div>
+      <div class="pain-item">
+        <div class="label">Their fear</div>
+        <p>"What if next month nobody shows up?" — because they can't contact last month's crowd</p>
+      </div>
+      <div class="gain-item">
+        <div class="label">Your answer</div>
+        <p>"We build a list so you can message 500 past attendees the moment you announce your next event."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FOOTER -->
+<section class="cta-footer" id="contact">
+  <h2>Ready to grow your events?</h2>
+  <p>Book a free 30-minute discovery call. No pressure, no commitment.</p>
+  <a href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20discovery%20call%20for%20my%20bhajan%20events" class="btn-white">Book a free call on WhatsApp</a>
+</section>
+
+<footer>
+  <p>Sanatan Studio · A venture of <a href="#">Media Divine Enterprise</a> · Mumbai, India</p>
+</footer>
+
+</body>
+</html>
