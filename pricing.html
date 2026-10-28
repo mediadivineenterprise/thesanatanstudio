@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing – The Sanatan Studio | Packages for Bhajan & Kirtan Organisers</title>
+  <meta name="description" content="Transparent pricing for bhajan & kirtan event digital services. Starter ₹12k, Event Organiser ₹25k+₹5k/mo, Growth ₹45k+₹10k/mo, Event Launch ₹20k/event." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --saffron: #FF9933;
+      --maroon: #800000;
+      --gold: #FFB300;
+      --deep-maroon: #5c0000;
+      --cream: #FFF8F0;
+      --white: #ffffff;
+      --dark: #1a1a1a;
+      --gray: #555;
+      --light-gray: #f5f5f5;
+      --green: #22c55e;
+      --red: #ef4444;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      background: var(--white);
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      border-bottom: 2px solid var(--saffron);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--maroon);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--saffron); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--saffron); }
+    .nav-cta {
+      background: var(--maroon);
+      color: #fff !important;
+      padding: .45rem 1.2rem;
+      border-radius: 50px;
+    }
+    .nav-cta:hover { background: var(--saffron) !important; }
+    @media (max-width: 768px) { nav .nav-links { display: none; } }
+
+    /* ── HERO ── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--maroon), var(--deep-maroon));
+      padding: 120px 5% 70px;
+      text-align: center;
+    }
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .page-hero h1 em { color: var(--saffron); font-style: normal; }
+    .page-hero p { color: rgba(255,255,255,0.75); font-size: 1rem; max-width: 560px; margin: 0 auto; line-height: 1.8; }
+
+    /* ── SECTION ── */
+    section { padding: 80px 5%; }
+    .section-tag {
+      display: inline-block;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: .8rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      color: var(--maroon);
+      line-height: 1.3;
+      margin-bottom: .8rem;
+    }
+    .center { text-align: center; }
+
+    /* ── PRICING CARDS ── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+    .plan-card {
+      border: 2px solid #e8e8e8;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all .3s;
+      position: relative;
+    }
+    .plan-card:hover { border-color: var(--saffron); box-shadow: 0 20px 60px rgba(128,0,0,0.12); transform: translateY(-4px); }
+    .plan-card.featured { border-color: var(--saffron); box-shadow: 0 20px 60px rgba(255,153,51,0.18); }
+    .plan-badge {
+      position: absolute;
+      top: 16px; right: 16px;
+      background: var(--saffron);
+      color: #fff;
+      font-size: .68rem;
+      font-weight: 700;
+      padding: .25rem .8rem;
+      border-radius: 50px;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+    .plan-header {
+      padding: 2rem 2rem 1.5rem;
+      background: var(--cream);
+    }
+    .plan-header h3 { font-size: 1.2rem; color: var(--maroon); margin-bottom: .3rem; font-weight: 700; }
+    .plan-tagline { font-size: .82rem; color: var(--gray); margin-bottom: 1.2rem; }
+    .plan-price { display: flex; align-items: baseline; gap: .3rem; margin-bottom: .3rem; }
+    .plan-amount { font-size: 2.2rem; font-weight: 800; color: var(--maroon); }
+    .plan-period { font-size: .85rem; color: var(--gray); }
+    .plan-extra { font-size: .8rem; color: var(--saffron); font-weight: 600; margin-bottom: .4rem; }
+    .plan-ideal { font-size: .78rem; color: var(--gray); font-style: italic; }
+
+    .plan-body { padding: 1.8rem 2rem; }
+    .plan-body h4 { font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--maroon); margin-bottom: 1rem; }
+    .feature-list { list-style: none; margin-bottom: 1.5rem; }
+    .feature-list li {
+      display: flex;
+      gap: .7rem;
+      align-items: flex-start;
+      margin-bottom: .7rem;
+      font-size: .875rem;
+      color: var(--dark);
+      line-height: 1.5;
+    }
+    .feature-list li .icon { min-width: 18px; font-size: .95rem; margin-top: .05rem; }
+    .check { color: var(--green); }
+    .cross { color: var(--red); }
+    .note-list { list-style: none; margin-bottom: 1.5rem; }
+    .note-list li {
+      display: flex; gap: .7rem; align-items: flex-start;
+      font-size: .82rem; color: var(--gray); margin-bottom: .5rem; line-height: 1.5;
+    }
+    .plan-cta {
+      display: block;
+      background: var(--maroon);
+      color: #fff;
+      text-align: center;
+      padding: .9rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: .92rem;
+      transition: all .2s;
+      margin-top: 1.5rem;
+    }
+    .plan-cta:hover { background: var(--saffron); }
+    .plan-cta.featured-cta { background: var(--saffron); }
+    .plan-cta.featured-cta:hover { background: var(--gold); }
+    .divider { border: none; border-top: 1px solid #eee; margin: 1.2rem 0; }
+
+    /* ── ADD-ONS ── */
+    .addons { background: var(--cream); }
+    .addons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .addon-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.8rem 1.5rem;
+      border: 1px solid rgba(255,153,51,0.15);
+    }
+    .addon-icon { font-size: 1.8rem; margin-bottom: .8rem; }
+    .addon-card h4 { font-size: .95rem; color: var(--maroon); margin-bottom: .4rem; font-weight: 700; }
+    .addon-card p { font-size: .83rem; color: var(--gray); line-height: 1.6; margin-bottom: .8rem; }
+    .addon-price { font-weight: 800; color: var(--saffron); font-size: 1rem; }
+
+    /* ── COMPARISON TABLE ── */
+    .comparison { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; margin-top: 2.5rem; font-size: .88rem; }
+    th {
+      background: var(--maroon);
+      color: #fff;
+      padding: 1rem .8rem;
+      text-align: center;
+      font-size: .8rem;
+      font-weight: 600;
+    }
+    th:first-child { text-align: left; background: var(--deep-maroon); }
+    td {
+      padding: .9rem .8rem;
+      border-bottom: 1px solid #f0f0f0;
+      text-align: center;
+      color: var(--gray);
+    }
+    td:first-child { text-align: left; color: var(--dark); font-weight: 500; }
+    tr:hover td { background: var(--cream); }
+    .tick { color: var(--green); font-size: 1.1rem; }
+    .cross-icon { color: #ccc; font-size: 1.1rem; }
+    .partial { color: var(--saffron); font-size: .8rem; font-weight: 600; }
+
+    /* ── FAQ ── */
+    .faq { background: var(--light-gray); }
+    .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+    .faq-item { background: #fff; border-radius: 12px; padding: 1.5rem; border-left: 4px solid var(--saffron); }
+    .faq-item h4 { font-size: .92rem; color: var(--maroon); margin-bottom: .5rem; font-weight: 700; }
+    .faq-item p { font-size: .85rem; color: var(--gray); line-height: 1.6; }
+
+    /* ── CTA ── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--saffron), var(--gold));
+      padding: 70px 5%;
+      text-align: center;
+    }
+    .cta-banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: #fff;
+      margin-bottom: .8rem;
+    }
+    .cta-banner p { color: rgba(255,255,255,0.88); font-size: 1rem; margin-bottom: 2rem; }
+    .btn-white {
+      background: #fff;
+      color: var(--maroon);
+      padding: .9rem 2.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: .95rem;
+      display: inline-block;
+      margin: .4rem;
+      transition: all .25s;
+    }
+    .btn-white:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+    .btn-wa { background: #25D366; color: #fff; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.6);
+      padding: 40px 5% 24px;
+      text-align: center;
+    }
+    footer p { font-size: .84rem; margin-bottom: .4rem; }
+    footer a { color: var(--saffron); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">The <span>Sanatan</span> Studio</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#process">Process</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="https://wa.me/919326058691?text=Hello%2C%20I%20want%20to%20know%20more%20about%20The%20Sanatan%20Studio%20services" target="_blank" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <h1>Simple, <em>Transparent</em> Pricing</h1>
+  <p>No hidden fees. No confusing jargon. Just clear packages designed for bhajan & kirtan organisers — at every stage.</p>
+</div>
+
+<!-- MAIN PACKAGES -->
+<section>
+  <div class="center">
+    <span class="section-tag">Packages</span>
+    <h2 class="section-title">Choose What Your Satsang Needs</h2>
+  </div>
+  <div class="pricing-grid">
+
+    <!-- STARTER -->
+    <div class="plan-card">
+      <div class="plan-header">
+        <h3>🌱 Starter</h3>
+        <p class="plan-tagline">Get your digital identity ready</p>
+        <div class="plan-price">
+          <span class="plan-amount">₹12,000</span>
+          <span class="plan-period">one-time</span>
+        </div>
+        <p class="plan-extra">No monthly fee</p>
+        <p class="plan-ideal">Ideal for: New bhajan groups just going digital</p>
+      </div>
+      <div class="plan-body">
+        <h4>✅ What's Included</h4>
+        <ul class="feature-list">
+          <li><span class="icon check">✓</span> 1-page professional website (event info, gallery, contact)</li>
+          <li><span class="icon check">✓</span> Google Business Profile setup (show up on Google Maps)</li>
+          <li><span class="icon check">✓</span> Instagram Business account setup &amp; branding</li>
+          <li><span class="icon check">✓</span> Bio, highlights covers &amp; link-in-bio configuration</li>
+          <li><span class="icon check">✓</span> Facebook Page creation &amp; linking</li>
+          <li><span class="icon check">✓</span> Brand colour palette &amp; logo guidance</li>
+          <li><span class="icon check">✓</span> WhatsApp Business profile setup</li>
+          <li><span class="icon check">✓</span> 5 branded post templates in Canva</li>
+          <li><span class="icon check">✓</span> 30-day onboarding support over WhatsApp</li>
+        </ul>
+        <hr class="divider" />
+        <h4>❌ Not Included</h4>
+        <ul class="feature-list">
+          <li><span class="icon cross">✗</span> Monthly Instagram posting (you post yourself)</li>
+          <li><span class="icon cross">✗</span> Online ticketing / attendee database</li>
+          <li><span class="icon cross">✗</span> WhatsApp automation / bulk messaging</li>
+          <li><span class="icon cross">✗</span> Paid ad campaigns</li>
+          <li><span class="icon cross">✗</span> Reels / video editing</li>
+        </ul>
+        <a href="https://wa.me/919326058691?text=Hello%2C%20I%20am%20interested%20in%20the%20Starter%20Package%20-%20%E2%82%B912%2C000" target="_blank" class="plan-cta">Get Starter Package →</a>
+      </div>
+    </div>
+
+    <!-- EVENT ORGANISER -->
+    <div class="plan-card featured">
+      <div class="plan-badge">Most Popular</div>
+      <div class="plan-header">
+        <h3>🎟️ Event Organiser</h3>
+        <p class="plan-tagline">For active organisers running events regularly</p>
+        <div class="plan-price">
+          <span class="plan-amount">₹25,000</span>
+          <span class="plan-period">setup</span>
+        </div>
+        <p class="plan-extra">+ ₹5,000/month ongoing</p>
+        <p class="plan-ideal">Ideal for: Groups running 1–2 events per month</p>
+      </div>
+      <div class="plan-body">
+        <h4>✅ Everything in Starter, Plus:</h4>
+        <ul class="feature-list">
+          <li><span class="icon check">✓</span> Online ticketing system setup (Instamojo / Townscript)</li>
+          <li><span class="icon check">✓</span> Attendee database — name, mobile, email auto-collected</li>
+          <li><span class="icon check">✓</span> Google Sheet database handed to you each event</li>
+          <li><span class="icon check">✓</span> 8 Instagram posts/month (static posts + carousels)</li>
+          <li><span class="icon check">✓</span> Event promotion posts for each event</li>
+          <li><span class="icon check">✓</span> Instagram Stories (3–4/week)</li>
+          <li><span class="icon check">✓</span> Monthly performance report</li>
+          <li><span class="icon check">✓</span> Caption writing in Hindi + English</li>
+          <li><span class="icon check">✓</span> Hashtag strategy for each post</li>
+        </ul>
+        <hr class="divider" />
+        <h4>❌ Not Included</h4>
+        <ul class="feature-list">
+          <li><span class="icon cross">✗</span> WhatsApp automation / bulk broadcasts</li>
+          <li><span class="icon cross">✗</span> Reels production (we can write script; editing extra)</li>
+          <li><span class="icon cross">✗</span> Paid ad campaigns (available as add-on)</li>
+          <li><span class="icon cross">✗</span> Venue booking / logistics (we don't travel)</li>
+          <li><span class="icon cross">✗</span> Ad spend budget (paid directly to Meta by client)</li>
+        </ul>
+        <a href="https://wa.me/919326058691?text=Hello%2C%20I%20am%20interested%20in%20the%20Event%20Organiser%20Package%20-%20%E2%82%B925%2C000" target="_blank" class="plan-cta featured-cta">Get Event Organiser →</a>
+      </div>
+    </div>
+
+    <!-- GROWTH -->
+    <div class="plan-card">
+      <div class="plan-header">
+        <h3>🚀 Growth</h3>
+        <p class="plan-tagline">For groups ready to scale big</p>
+        <div class="plan-price">
+          <span class="plan-amount">₹45,000</span>
+          <span class="plan-period">setup</span>
+        </div>
+        <p class="plan-extra">+ ₹10,000/month ongoing</p>
+        <p class="plan-ideal">Ideal for: Established organisers wanting 300+ attendees per event</p>
+      </div>
+      <div class="plan-body">
+        <h4>✅ Everything in Event Organiser, Plus:</h4>
+        <ul class="feature-list">
+          <li><span class="icon check">✓</span> WhatsApp Automation setup (bulk event broadcasts)</li>
+          <li><span class="icon check">✓</span> Automated confirmation &amp; reminder messages to attendees</li>
+          <li><span class="icon check">✓</span> 12 posts/month + 2 Reels scripts per month</li>
+          <li><span class="icon check">✓</span> Reels editing (you provide raw video; we edit)</li>
+          <li><span class="icon check">✓</span> Meta Ads strategy &amp; targeting setup</li>
+          <li><span class="icon check">✓</span> Ad creative (poster/video) for campaigns</li>
+          <li><span class="icon check">✓</span> Community engagement (reply to comments/DMs)</li>
+          <li><span class="icon check">✓</span> Bi-monthly strategy call</li>
+          <li><span class="icon check">✓</span> Priority WhatsApp support</li>
+        </ul>
+        <hr class="divider" />
+        <h4>❌ Not Included</h4>
+        <ul class="feature-list">
+          <li><span class="icon cross">✗</span> Ad budget (you pay Meta directly — minimum ₹5,000/month recommended)</li>
+          <li><span class="icon cross">✗</span> Event videography / photography (you arrange, we edit)</li>
+          <li><span class="icon cross">✗</span> Venue arrangements / physical event management</li>
+        </ul>
+        <a href="https://wa.me/919326058691?text=Hello%2C%20I%20am%20interested%20in%20the%20Growth%20Package%20-%20%E2%82%B945%2C000" target="_blank" class="plan-cta">Get Growth Package →</a>
+      </div>
+    </div>
+
+    <!-- EVENT LAUNCH -->
+    <div class="plan-card">
+      <div class="plan-header">
+        <h3>🎪 Event Launch</h3>
+        <p class="plan-tagline">Full digital push for one big event</p>
+        <div class="plan-price">
+          <span class="plan-amount">₹20,000</span>
+          <span class="plan-period">per event</span>
+        </div>
+        <p class="plan-extra">No monthly commitment</p>
+        <p class="plan-ideal">Ideal for: One-time events or special annual programmes</p>
+      </div>
+      <div class="plan-body">
+        <h4>✅ What's Included (Per Event)</h4>
+        <ul class="feature-list">
+          <li><span class="icon check">✓</span> Event poster design (2 versions)</li>
+          <li><span class="icon check">✓</span> Online ticketing page setup</li>
+          <li><span class="icon check">✓</span> WhatsApp broadcast to your existing list</li>
+          <li><span class="icon check">✓</span> 5 Instagram posts for the event</li>
+          <li><span class="icon check">✓</span> 1 Reel script + editing (you provide footage)</li>
+          <li><span class="icon check">✓</span> Instagram Stories (countdown, behind-scenes)</li>
+          <li><span class="icon check">✓</span> Post-event thank you message + attendee list</li>
+          <li><span class="icon check">✓</span> Google Business post update</li>
+        </ul>
+        <hr class="divider" />
+        <h4>❌ Not Included</h4>
+        <ul class="feature-list">
+          <li><span class="icon cross">✗</span> Paid ad campaigns (available for +₹10,000 setup)</li>
+          <li><span class="icon cross">✗</span> Ad budget (client pays Meta directly)</li>
+          <li><span class="icon cross">✗</span> Monthly ongoing management after the event</li>
+        </ul>
+        <a href="https://wa.me/919326058691?text=Hello%2C%20I%20am%20interested%20in%20the%20Event%20Launch%20Package%20-%20%E2%82%B920%2C000" target="_blank" class="plan-cta">Book Event Launch →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ADD-ONS -->
+<section class="addons">
+  <div class="center">
+    <span class="section-tag">Add-Ons</span>
+    <h2 class="section-title">Enhance Any Package</h2>
+    <p style="color:var(--gray);font-size:.95rem;margin-top:.5rem;">These can be added to any plan at any time.</p>
+  </div>
+  <div class="addons-grid">
+    <div class="addon-card">
+      <div class="addon-icon">🎯</div>
+      <h4>Paid Ad Campaign Setup</h4>
+      <p>Meta/Instagram ad campaign — targeting, creative, and launch. Ad spend is separate (paid by you to Meta).</p>
+      <div class="addon-price">₹10,000 setup</div>
+    </div>
+    <div class="addon-card">
+      <div class="addon-icon">🎬</div>
+      <h4>Extra Reel Editing</h4>
+      <p>1 additional Reel edited per request. You provide raw footage; we edit, caption, and deliver.</p>
+      <div class="addon-price">₹2,000 per Reel</div>
+    </div>
+    <div class="addon-card">
+      <div class="addon-icon">📄</div>
+      <h4>Sponsorship Deck</h4>
+      <p>A professional 8–10 page PDF to approach local businesses for event sponsorship — with your stats, reach, and packages.</p>
+      <div class="addon-price">₹5,000 one-time</div>
+    </div>
+    <div class="addon-card">
+      <div class="addon-icon">💬</div>
+      <h4>Extra WhatsApp Broadcast</h4>
+      <p>Additional WhatsApp bulk broadcast outside your regular plan — for urgent announcements or last-minute events.</p>
+      <div class="addon-price">₹1,500 per broadcast</div>
+    </div>
+    <div class="addon-card">
+      <div class="addon-icon">🗞️</div>
+      <h4>Extra Event Posts</h4>
+      <p>5 additional Instagram posts for a specific event, on top of your monthly quota.</p>
+      <div class="addon-price">₹3,000 per 5 posts</div>
+    </div>
+    <div class="addon-card">
+      <div class="addon-icon">🏙️</div>
+      <h4>Multi-City Campaign</h4>
+      <p>Expand your event promotion to a second city — new targeting, separate WhatsApp broadcasts, localised content.</p>
+      <div class="addon-price">₹8,000 per city</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section>
+  <div class="center">
+    <span class="section-tag">Compare</span>
+    <h2 class="section-title">Package Comparison at a Glance</h2>
+  </div>
+  <div class="comparison">
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Starter<br/>₹12,000</th>
+          <th>Event Organiser<br/>₹25k + ₹5k/mo</th>
+          <th>Growth<br/>₹45k + ₹10k/mo</th>
+          <th>Event Launch<br/>₹20,000</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Professional Website</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="cross-icon">—</td></tr>
+        <tr><td>Google Business Profile</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+        <tr><td>Instagram Account Setup</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td><td class="cross-icon">—</td></tr>
+        <tr><td>Monthly Instagram Posts</td><td class="cross-icon">—</td><td class="partial">8/month</td><td class="partial">12/month</td><td class="partial">5 per event</td></tr>
+        <tr><td>Instagram Stories</td><td class="cross-icon">—</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+        <tr><td>Reels Script</td><td class="cross-icon">—</td><td class="cross-icon">—</td><td class="partial">2/month</td><td class="partial">1 per event</td></tr>
+        <tr><td>Reels Editing</td><td class="cross-icon">—</td><td class="cross-icon">—</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+        <tr><td>Online Ticketing Setup</td><td class="cross-icon">—</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+        <tr><td>Attendee Database</td><td class="cross-icon">—</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+        <tr><td>WhatsApp Automation</td><td class="cross-icon">—</td><td class="cross-icon">—</td><td class="tick">✓</td><td class="partial">1 broadcast</td></tr>
+        <tr><td>Meta Ads Strategy</td><td class="cross-icon">—</td><td class="cross-icon">—</td><td class="tick">✓</td><td class="cross-icon">—</td></tr>
+        <tr><td>Event Poster Design</td><td class="cross-icon">—</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+        <tr><td>Monthly Report</td><td class="cross-icon">—</td><td class="tick">✓</td><td class="tick">✓</td><td class="cross-icon">—</td></tr>
+        <tr><td>Priority Support</td><td class="cross-icon">—</td><td class="cross-icon">—</td><td class="tick">✓</td><td class="cross-icon">—</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="center">
+    <span class="section-tag">FAQ</span>
+    <h2 class="section-title">Common Questions</h2>
+  </div>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <h4>Is the ad budget included in the pricing?</h4>
+      <p>No. The ad budget (minimum ₹5,000/month recommended) is paid by you directly to Meta/Instagram. We handle the setup, targeting, and creative — we don't markup ad spend.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Do you travel to events or help with venue booking?</h4>
+      <p>No. We are a digital agency — we work online only. We handle all promotion, ticketing, and digital setup. Venue booking, artist coordination, and event day management is handled by you.</p>
+    </div>
+    <div class="faq-item">
+      <h4>What videos do you need from us for Reels?</h4>
+      <p>You record any footage from the event — even phone camera is fine. Send it to us on WhatsApp and we edit it into a professional Reel with music, captions, and effects.</p>
+    </div>
+    <div class="faq-item">
+      <h4>How long does the setup take?</h4>
+      <p>Typically 10–14 working days for the initial setup. After that, monthly deliverables are on a fixed schedule agreed at the start.</p>
+    </div>
+    <div class="faq-item">
+      <h4>What is a Sponsorship Deck?</h4>
+      <p>A professional PDF (8–10 pages) to show local businesses why they should sponsor your event. Includes your event stats, audience details, and sponsorship benefits. Add-on at ₹5,000.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Can I start with Starter and upgrade later?</h4>
+      <p>Yes! Many clients start with Starter, then upgrade to Event Organiser once their first event needs ticketing and regular posting. You only pay the difference in setup.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Is there a contract or lock-in period?</h4>
+      <p>Minimum 3-month commitment for monthly plans (Event Organiser and Growth). This ensures you see real results from consistent content and community building.</p>
+    </div>
+    <div class="faq-item">
+      <h4>What's the difference between Event Organiser and Event Launch?</h4>
+      <p>Event Organiser is an ongoing monthly retainer for groups running events regularly. Event Launch is a one-time, all-in push for a single big event — with no monthly commitment after.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <h2>Still Unsure Which Package?</h2>
+  <p>Let's talk for 15 minutes — we'll tell you exactly which package makes sense for your bhajan group's current stage.</p>
+  <a href="https://wa.me/919326058691?text=Hello%2C%20I%20want%20a%20free%20consultation%20to%20choose%20the%20right%20package%20for%20my%20bhajan%20event" target="_blank" class="btn-white btn-wa">💬 WhatsApp: +91 93260 58691</a>
+  <a href="mailto:thesanatanstudio9@gmail.com" class="btn-white">✉️ thesanatanstudio9@gmail.com</a>
+</section>
+
+<footer>
+  <p>© 2026 <strong style="color:#fff">The Sanatan Studio</strong> | <a href="/">Home</a> | <a href="mailto:thesanatanstudio9@gmail.com">thesanatanstudio9@gmail.com</a></p>
+  <p style="margin-top:.5rem">Made with 🙏 for the bhajan community</p>
+</footer>
+
+</body>
+</html>

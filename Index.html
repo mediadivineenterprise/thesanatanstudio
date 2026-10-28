@@ -1,635 +1,710 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sanatan Studio — Grow Your Devotional Events</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Sanatan Studio – Digital Agency for Bhajan & Kirtan Organisers</title>
+  <meta name="description" content="We help bhajan & kirtan event organisers go digital – websites, ticketing, attendee databases, WhatsApp automation, and social media growth." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --saffron: #FF9933;
+      --maroon: #800000;
+      --gold: #FFB300;
+      --deep-maroon: #5c0000;
+      --cream: #FFF8F0;
+      --white: #ffffff;
+      --dark: #1a1a1a;
+      --gray: #666;
+      --light-gray: #f5f5f5;
+    }
 
-  :root {
-    --saffron: #E8621A;
-    --saffron-light: #F4894A;
-    --gold: #C4920A;
-    --gold-light: #F5C842;
-    --ivory: #FDF6EC;
-    --ivory-dark: #F5ECD8;
-    --ink: #1A1208;
-    --ink-soft: #3D2E0F;
-    --muted: #7A6245;
-    --white: #FFFFFF;
-    --card-bg: #FFFDF8;
-    --border: rgba(196,146,10,0.18);
-  }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      overflow-x: hidden;
+    }
 
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--ivory);
-    color: var(--ink);
-    line-height: 1.6;
-  }
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      border-bottom: 2px solid var(--saffron);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--maroon);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--saffron); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--saffron); }
+    .nav-cta {
+      background: var(--maroon);
+      color: #fff !important;
+      padding: .45rem 1.2rem;
+      border-radius: 50px;
+    }
+    .nav-cta:hover { background: var(--saffron) !important; color: #fff !important; }
 
-  /* NAV */
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(253,246,236,0.92);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
-    padding: 1rem 2rem;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .nav-brand {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem; font-weight: 700;
-    color: var(--saffron);
-    letter-spacing: -0.02em;
-  }
-  .nav-brand span { color: var(--gold); }
-  .nav-cta {
-    background: var(--saffron);
-    color: var(--white);
-    border: none; border-radius: 6px;
-    padding: 0.5rem 1.25rem;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.875rem; font-weight: 500;
-    cursor: pointer; text-decoration: none;
-    transition: background 0.2s;
-  }
-  .nav-cta:hover { background: var(--saffron-light); }
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--maroon) 0%, var(--deep-maroon) 50%, #3a0000 100%);
+      display: flex;
+      align-items: center;
+      padding: 80px 5% 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: 'ॐ';
+      position: absolute;
+      right: -2%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: clamp(200px, 35vw, 420px);
+      color: rgba(255,255,255,0.04);
+      font-family: 'Playfair Display', serif;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .hero-content { max-width: 680px; position: relative; z-index: 2; }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,153,51,0.2);
+      border: 1px solid var(--saffron);
+      color: var(--saffron);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: .4rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 em { color: var(--saffron); font-style: normal; }
+    .hero p {
+      color: rgba(255,255,255,0.78);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 2.2rem;
+      max-width: 560px;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--saffron);
+      color: #fff;
+      padding: .85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: .95rem;
+      transition: all .25s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.5);
+      color: #fff;
+      padding: .85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .95rem;
+      transition: all .25s;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--saffron); color: var(--saffron); }
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .stat { }
+    .stat-num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--saffron);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: .2rem;
+    }
 
-  /* HERO */
-  .hero {
-    min-height: 92vh;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    text-align: center;
-    padding: 4rem 2rem 3rem;
-    position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232,98,26,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-om {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
-    opacity: 0.15;
-    letter-spacing: 0.1em;
-  }
-  .hero-eyebrow {
-    display: inline-block;
-    background: var(--ivory-dark);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    padding: 0.3rem 1rem;
-    font-size: 0.8rem; font-weight: 500;
-    color: var(--saffron);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.4rem, 5vw, 4rem);
-    font-weight: 700;
-    line-height: 1.15;
-    color: var(--ink);
-    max-width: 720px;
-    margin-bottom: 1.25rem;
-  }
-  .hero h1 em {
-    font-style: normal;
-    color: var(--saffron);
-  }
-  .hero-sub {
-    font-size: 1.1rem;
-    color: var(--muted);
-    max-width: 520px;
-    margin-bottom: 2.5rem;
-    line-height: 1.7;
-  }
-  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-  .btn-primary {
-    background: var(--saffron);
-    color: var(--white);
-    border: none; border-radius: 8px;
-    padding: 0.85rem 2rem;
-    font-size: 1rem; font-weight: 500;
-    cursor: pointer; text-decoration: none;
-    transition: transform 0.15s, background 0.2s;
-    display: inline-block;
-  }
-  .btn-primary:hover { background: var(--saffron-light); transform: translateY(-1px); }
-  .btn-secondary {
-    background: transparent;
-    color: var(--ink-soft);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 0.85rem 2rem;
-    font-size: 1rem; font-weight: 500;
-    cursor: pointer; text-decoration: none;
-    transition: border-color 0.2s, background 0.2s;
-    display: inline-block;
-  }
-  .btn-secondary:hover { background: var(--ivory-dark); border-color: var(--gold); }
+    /* ── SECTION BASE ── */
+    section { padding: 80px 5%; }
+    .section-tag {
+      display: inline-block;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: .8rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      color: var(--maroon);
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      color: var(--gray);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 580px;
+    }
+    .center { text-align: center; }
+    .center .section-sub { margin: 0 auto; }
 
-  .hero-proof {
-    margin-top: 3rem;
-    display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap;
-  }
-  .proof-item { text-align: center; }
-  .proof-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem; font-weight: 700;
-    color: var(--saffron);
-  }
-  .proof-label { font-size: 0.8rem; color: var(--muted); }
+    /* ── PROBLEM STRIP ── */
+    .problems {
+      background: var(--cream);
+      padding: 60px 5%;
+    }
+    .problems-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .problem-card {
+      background: #fff;
+      border-left: 4px solid var(--saffron);
+      padding: 1.5rem;
+      border-radius: 0 12px 12px 0;
+    }
+    .problem-icon { font-size: 1.8rem; margin-bottom: .8rem; }
+    .problem-card h4 { font-size: .95rem; color: var(--maroon); margin-bottom: .4rem; font-weight: 700; }
+    .problem-card p { font-size: .85rem; color: var(--gray); line-height: 1.6; }
 
-  /* SECTION COMMON */
-  section { padding: 5rem 2rem; }
-  .section-inner { max-width: 1000px; margin: 0 auto; }
-  .section-label {
-    font-size: 0.75rem; font-weight: 600;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.75rem;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-    font-weight: 700; line-height: 1.2;
-    color: var(--ink);
-    margin-bottom: 1rem;
-  }
-  .section-sub {
-    font-size: 1rem; color: var(--muted);
-    max-width: 520px; line-height: 1.7;
-  }
+    /* ── SERVICES ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+      margin-top: 3.5rem;
+    }
+    .service-card {
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 2rem 1.8rem;
+      position: relative;
+      transition: transform .25s, box-shadow .25s;
+      border: 1px solid rgba(255,153,51,0.15);
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(128,0,0,0.1); }
+    .service-icon {
+      width: 54px; height: 54px;
+      background: var(--maroon);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+    .service-card h3 { font-size: 1.1rem; color: var(--maroon); margin-bottom: .6rem; font-weight: 700; }
+    .service-card p { font-size: .88rem; color: var(--gray); line-height: 1.7; }
+    .service-price {
+      margin-top: 1.2rem;
+      font-weight: 800;
+      color: var(--saffron);
+      font-size: 1rem;
+    }
 
-  /* PROBLEM */
-  .problem { background: var(--ivory-dark); }
-  .problem-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.25rem; margin-top: 3rem;
-  }
-  .problem-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem;
-  }
-  .problem-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
-  .problem-card h3 { font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
-  .problem-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+    /* ── HOW IT WORKS ── */
+    .how-bg { background: linear-gradient(135deg, var(--maroon), var(--deep-maroon)); }
+    .how-bg .section-title { color: #fff; }
+    .how-bg .section-sub { color: rgba(255,255,255,0.7); }
+    .how-bg .section-tag { color: var(--gold); }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 3.5rem; }
+    .step {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: rgba(255,255,255,0.06);
+      border-radius: 16px;
+      border: 1px solid rgba(255,153,51,0.2);
+    }
+    .step-num {
+      width: 48px; height: 48px;
+      background: var(--saffron);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.1rem; color: #fff;
+      margin: 0 auto 1rem;
+    }
+    .step h4 { color: #fff; font-size: 1rem; margin-bottom: .5rem; }
+    .step p { color: rgba(255,255,255,0.65); font-size: .85rem; line-height: 1.6; }
 
-  /* SERVICES */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem; margin-top: 3rem;
-  }
-  .service-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 2rem 1.75rem;
-    position: relative; transition: border-color 0.2s;
-  }
-  .service-card:hover { border-color: var(--saffron); }
-  .service-card.featured {
-    border: 2px solid var(--saffron);
-  }
-  .popular-badge {
-    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-    background: var(--saffron);
-    color: var(--white);
-    font-size: 0.7rem; font-weight: 600;
-    padding: 0.2rem 0.75rem; border-radius: 100px;
-    letter-spacing: 0.06em; text-transform: uppercase;
-    white-space: nowrap;
-  }
-  .service-tier {
-    font-size: 0.7rem; font-weight: 600;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 0.5rem;
-  }
-  .service-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem; font-weight: 700;
-    color: var(--ink); margin-bottom: 0.25rem;
-  }
-  .service-price {
-    font-size: 2rem; font-weight: 700;
-    color: var(--saffron); margin-bottom: 0.25rem;
-  }
-  .service-price span { font-size: 0.9rem; font-weight: 400; color: var(--muted); }
-  .service-retainer {
-    font-size: 0.8rem; color: var(--gold);
-    font-weight: 500; margin-bottom: 1.25rem;
-  }
-  .service-divider {
-    border: none; border-top: 1px solid var(--border);
-    margin: 1.25rem 0;
-  }
-  .service-features { list-style: none; }
-  .service-features li {
-    font-size: 0.875rem; color: var(--ink-soft);
-    padding: 0.35rem 0;
-    display: flex; gap: 0.6rem; align-items: flex-start;
-  }
-  .feature-check { color: var(--saffron); font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
-  .service-cta {
-    margin-top: 1.75rem;
-    display: block; text-align: center;
-    padding: 0.75rem; border-radius: 8px;
-    font-size: 0.9rem; font-weight: 500;
-    text-decoration: none; transition: all 0.2s;
-    border: 1.5px solid var(--saffron);
-    color: var(--saffron);
-  }
-  .service-cta:hover { background: var(--saffron); color: var(--white); }
-  .service-card.featured .service-cta {
-    background: var(--saffron); color: var(--white);
-  }
-  .service-card.featured .service-cta:hover { background: var(--saffron-light); }
+    /* ── WHY US ── */
+    .why-us { background: var(--cream); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.8rem; margin-top: 3rem; }
+    .why-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+      border-top: 4px solid var(--saffron);
+    }
+    .why-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .why-card h4 { font-size: 1rem; color: var(--maroon); font-weight: 700; margin-bottom: .6rem; }
+    .why-card p { font-size: .88rem; color: var(--gray); line-height: 1.7; }
 
-  /* HOW IT WORKS */
-  .how { background: var(--ivory-dark); }
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 0; margin-top: 3rem; position: relative;
-  }
-  .step {
-    padding: 1.5rem 1.5rem 1.5rem 0;
-    position: relative;
-  }
-  .step-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem; font-weight: 700;
-    color: var(--ivory-dark);
-    -webkit-text-stroke: 1.5px var(--saffron);
-    margin-bottom: 0.75rem; line-height: 1;
-  }
-  .step h3 { font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
-  .step p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+    /* ── PRICING TEASER ── */
+    .pricing-teaser { text-align: center; }
+    .packages-preview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+      margin: 3rem 0;
+      max-width: 1000px;
+      margin-left: auto; margin-right: auto;
+    }
+    .pkg-card {
+      border: 2px solid rgba(255,153,51,0.2);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      transition: all .25s;
+      text-align: center;
+    }
+    .pkg-card:hover, .pkg-card.featured { border-color: var(--saffron); background: var(--cream); }
+    .pkg-card.featured { position: relative; }
+    .pkg-badge {
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--saffron);
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 700;
+      padding: .25rem .9rem;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+    .pkg-card h3 { color: var(--maroon); margin-bottom: .5rem; font-size: 1.05rem; }
+    .pkg-card .price { font-size: 1.6rem; font-weight: 800; color: var(--saffron); margin-bottom: .3rem; }
+    .pkg-card .price-sub { font-size: .78rem; color: var(--gray); margin-bottom: 1rem; }
+    .pkg-card p { font-size: .83rem; color: var(--gray); line-height: 1.6; }
 
-  /* WHO IT'S FOR */
-  .icp-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem; margin-top: 3rem;
-  }
-  .icp-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem 1.25rem;
-    text-align: center;
-  }
-  .icp-icon { font-size: 2rem; margin-bottom: 0.75rem; }
-  .icp-card h3 { font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 0.35rem; }
-  .icp-card p { font-size: 0.8rem; color: var(--muted); }
+    /* ── ABOUT ── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about-visual {
+      background: linear-gradient(135deg, var(--maroon), var(--deep-maroon));
+      border-radius: 24px;
+      padding: 3rem;
+      text-align: center;
+      color: #fff;
+    }
+    .about-om { font-size: 5rem; opacity: .7; }
+    .about-visual h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: .8rem; }
+    .about-visual p { color: rgba(255,255,255,0.7); font-size: .9rem; line-height: 1.7; }
+    .about-text .section-sub { margin-bottom: 1.5rem; max-width: 100%; }
+    .values { margin-top: 1.5rem; }
+    .value-item { display: flex; gap: .8rem; margin-bottom: 1rem; align-items: flex-start; }
+    .value-dot {
+      width: 10px; height: 10px; min-width: 10px;
+      background: var(--saffron); border-radius: 50%;
+      margin-top: .4rem;
+    }
+    .value-item p { font-size: .9rem; color: var(--gray); line-height: 1.6; }
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; }
+    }
 
-  /* PITCH BLOCK */
-  .pitch-block {
-    background: var(--ink);
-    color: var(--white);
-  }
-  .pitch-inner {
-    max-width: 700px; margin: 0 auto; text-align: center;
-  }
-  .pitch-block .section-label { color: var(--gold-light); }
-  .pitch-block .section-title { color: var(--white); }
-  .pitch-quote {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-    font-style: italic;
-    color: rgba(255,255,255,0.75);
-    border-left: 3px solid var(--saffron);
-    padding-left: 1.25rem;
-    text-align: left;
-    margin: 2rem 0;
-    line-height: 1.6;
-  }
-  .pitch-pain {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem; margin: 2rem 0;
-    text-align: left;
-  }
-  .pain-item, .gain-item {
-    background: rgba(255,255,255,0.05);
-    border-radius: 10px; padding: 1rem 1.25rem;
-    font-size: 0.875rem;
-  }
-  .pain-item { border-left: 3px solid rgba(255,80,80,0.5); }
-  .gain-item { border-left: 3px solid var(--saffron); }
-  .pain-item .label, .gain-item .label {
-    font-size: 0.7rem; font-weight: 600;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    color: rgba(255,255,255,0.4); margin-bottom: 0.5rem;
-  }
-  .pain-item p, .gain-item p { color: rgba(255,255,255,0.8); line-height: 1.55; }
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--saffron), var(--gold));
+      padding: 70px 5%;
+      text-align: center;
+    }
+    .cta-banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: #fff;
+      margin-bottom: .8rem;
+    }
+    .cta-banner p { color: rgba(255,255,255,0.88); font-size: 1rem; margin-bottom: 2rem; }
+    .btn-white {
+      background: #fff;
+      color: var(--maroon);
+      padding: .9rem 2.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: .95rem;
+      display: inline-block;
+      margin: .4rem;
+      transition: all .25s;
+    }
+    .btn-white:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+    .btn-wa { background: #25D366; color: #fff; }
+    .btn-wa:hover { background: #1ebe5a; }
 
-  /* INSTAGRAM SECTION */
-  .insta { background: var(--ivory-dark); }
-  .insta-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem; margin-top: 2rem;
-  }
-  .insta-post {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1rem;
-    font-size: 0.8rem;
-  }
-  .post-type {
-    font-size: 0.65rem; font-weight: 600;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--saffron); margin-bottom: 0.4rem;
-  }
-  .post-caption { color: var(--ink-soft); line-height: 1.5; }
-
-  /* CTA FOOTER */
-  .cta-footer {
-    background: var(--saffron);
-    padding: 5rem 2rem;
-    text-align: center;
-  }
-  .cta-footer h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 700; color: var(--white);
-    margin-bottom: 1rem;
-  }
-  .cta-footer p { color: rgba(255,255,255,0.8); margin-bottom: 2rem; font-size: 1rem; }
-  .btn-white {
-    background: var(--white);
-    color: var(--saffron);
-    border: none; border-radius: 8px;
-    padding: 0.9rem 2.25rem;
-    font-size: 1rem; font-weight: 600;
-    cursor: pointer; text-decoration: none;
-    display: inline-block;
-    transition: transform 0.15s;
-  }
-  .btn-white:hover { transform: translateY(-2px); }
-
-  footer {
-    background: var(--ink);
-    color: rgba(255,255,255,0.4);
-    text-align: center;
-    padding: 1.5rem 2rem;
-    font-size: 0.8rem;
-  }
-  footer a { color: var(--gold-light); text-decoration: none; }
-
-  @media (max-width: 600px) {
-    .pitch-pain { grid-template-columns: 1fr; }
-    .insta-grid { grid-template-columns: 1fr; }
-    .hero-proof { gap: 1.5rem; }
-    nav { padding: 1rem; }
-  }
-</style>
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.7);
+      padding: 50px 5% 30px;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+    .footer-brand h3 {
+      font-family: 'Playfair Display', serif;
+      color: #fff; font-size: 1.3rem; margin-bottom: .8rem;
+    }
+    .footer-brand h3 span { color: var(--saffron); }
+    .footer-brand p { font-size: .85rem; line-height: 1.7; margin-bottom: 1rem; }
+    .footer-contact a { display: block; color: var(--saffron); text-decoration: none; font-size: .85rem; margin-bottom: .4rem; }
+    .footer-col h4 { color: #fff; font-size: .9rem; margin-bottom: 1rem; }
+    .footer-col a { display: block; text-decoration: none; color: rgba(255,255,255,0.6); font-size: .85rem; margin-bottom: .5rem; transition: color .2s; }
+    .footer-col a:hover { color: var(--saffron); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: .8rem; }
+    .footer-bottom span { color: var(--saffron); }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      nav .nav-links { display: none; }
+      .hero-stats { gap: 1.5rem; }
+    }
+  </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <div class="nav-brand">Sanatan<span>Studio</span></div>
-  <a href="#contact" class="nav-cta">Book a free call</a>
+  <a href="/" class="nav-logo">The <span>Sanatan</span> Studio</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="#contact" class="nav-cta">Get Started</a></li>
+  </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-om">ॐ</div>
-  <div class="hero-eyebrow">Digital services for devotional events</div>
-  <h1>You fill the hall.<br><em>We handle everything online.</em></h1>
-  <p class="hero-sub">Websites, ticket booking, WhatsApp automation, and Instagram management — built specifically for bhajan clubs, kirtan organisers, and spiritual event creators.</p>
-  <div class="hero-actions">
-    <a href="#services" class="btn-primary">See packages &amp; pricing</a>
-    <a href="#pitch" class="btn-secondary">Why you need this</a>
-  </div>
-  <div class="hero-proof">
-    <div class="proof-item">
-      <div class="proof-num">₹0</div>
-      <div class="proof-label">WhatsApp group earnings saved</div>
+  <div class="hero-content">
+    <div class="hero-tag">🪔 Digital Agency for Bhajan & Kirtan Events</div>
+    <h1>Aapke Bhajan Events<br />Deserve to <em>Be Found</em></h1>
+    <p>We help bhajan & kirtan organisers build a complete digital presence — so more devotees find your events, more tickets get booked, and your satsang grows with every event.</p>
+    <div class="hero-btns">
+      <a href="pricing.html" class="btn-primary">View Packages →</a>
+      <a href="https://wa.me/919326058691?text=Hello%2C%20I%20want%20to%20know%20more%20about%20The%20Sanatan%20Studio%20services" target="_blank" class="btn-outline">💬 WhatsApp Us</a>
     </div>
-    <div class="proof-item">
-      <div class="proof-num">24h</div>
-      <div class="proof-label">Stories vanish after this</div>
-    </div>
-    <div class="proof-item">
-      <div class="proof-num">0</div>
-      <div class="proof-label">Attendees you can reach next event</div>
-    </div>
-  </div>
-</section>
-
-<!-- PROBLEM -->
-<section class="problem">
-  <div class="section-inner">
-    <div class="section-label">The real problem</div>
-    <h2 class="section-title">After every event, you start from zero.</h2>
-    <p class="section-sub">You promote brilliantly on WhatsApp and Instagram. The event sells out. Then it disappears — and you have no way to reach those people again.</p>
-    <div class="problem-grid">
-      <div class="problem-card">
-        <div class="problem-icon">📱</div>
-        <h3>Stories vanish in 24 hours</h3>
-        <p>Your event announcement disappears before most people even see it.</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Digital setup in 14 days</div>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon">📋</div>
-        <h3>No attendee list</h3>
-        <p>You have no database of people who love your events. Every time, you start from scratch.</p>
+      <div class="stat">
+        <div class="stat-num">3-in-1</div>
+        <div class="stat-label">WhatsApp + Website + Tickets</div>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon">💸</div>
-        <h3>Google Forms for tickets</h3>
-        <p>Manual UPI collection, no reminders, no confirmation — buyers worry if their booking is real.</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-icon">🔍</div>
-        <h3>Invisible on Google</h3>
-        <p>When someone searches "bhajan event in Mumbai," you don't appear. Strangers can't find you.</p>
+      <div class="stat">
+        <div class="stat-num">Free</div>
+        <div class="stat-label">Consultation — no commitment</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHO IT'S FOR -->
-<section>
-  <div class="section-inner">
-    <div class="section-label">Who we work with</div>
-    <h2 class="section-title">Built for the devotional event world</h2>
-    <div class="icp-grid">
-      <div class="icp-card">
-        <div class="icp-icon">🎶</div>
-        <h3>Bhajan clubs &amp; kirtan groups</h3>
-        <p>Running weekly or monthly gatherings with growing communities</p>
-      </div>
-      <div class="icp-card">
-        <div class="icp-icon">🎪</div>
-        <h3>Bhajan clubbing organisers</h3>
-        <p>Selling tickets for large-scale devotional events in city venues</p>
-      </div>
-      <div class="icp-card">
-        <div class="icp-icon">🙏</div>
-        <h3>Katha &amp; pravachan speakers</h3>
-        <p>Building a following and monetising live or online sessions</p>
-      </div>
-      <div class="icp-card">
-        <div class="icp-icon">🛕</div>
-        <h3>Temple utsav committees</h3>
-        <p>Organising annual festivals, Janmashtami nights, Navratri events</p>
-      </div>
+<!-- PROBLEMS -->
+<section class="problems">
+  <div class="center">
+    <span class="section-tag">The Problem</span>
+    <h2 class="section-title">Bhajan Organisers Face the Same Struggles</h2>
+    <p class="section-sub">You organise beautiful satsangs — but these digital gaps are costing you attendees every single time.</p>
+  </div>
+  <div class="problems-grid">
+    <div class="problem-card">
+      <div class="problem-icon">📱</div>
+      <h4>WhatsApp Story Gone in 24 Hours</h4>
+      <p>Your event announcement disappears before half your audience even sees it.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">📋</div>
+      <h4>No Attendee Database</h4>
+      <p>You don't know who came. No names, no numbers — you can't invite them to the next event.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">🔗</div>
+      <h4>No Online Ticket Link</h4>
+      <p>People say "bata dena" and then forget. No way to confirm, no way to collect commitment.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">📣</div>
+      <h4>Reaching Only Your Circle</h4>
+      <p>All your promotion reaches only existing contacts. New devotees can't discover your events.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">💸</div>
+      <h4>Spending on Ads Without Results</h4>
+      <p>Running Meta ads without proper targeting wastes money with very little return.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">⏱️</div>
+      <h4>No Time for Digital</h4>
+      <p>You're busy with the actual event. You don't have time to manage Instagram and WhatsApp too.</p>
     </div>
   </div>
 </section>
 
-<!-- SERVICES / PRICING -->
-<section id="services" style="background: var(--ivory-dark);">
-  <div class="section-inner">
-    <div class="section-label">Packages &amp; pricing</div>
-    <h2 class="section-title">Simple, honest pricing</h2>
-    <p class="section-sub">One-time setup to get you online. Monthly retainer to keep growing.</p>
-    <div class="services-grid">
-
-      <!-- Starter -->
-      <div class="service-card">
-        <div class="service-tier">Starter</div>
-        <div class="service-name">Digital Starter Pack</div>
-        <div class="service-price">₹12,000 <span>one-time</span></div>
-        <hr class="service-divider">
-        <ul class="service-features">
-          <li><span class="feature-check">✦</span>Link-in-bio landing page with event listing</li>
-          <li><span class="feature-check">✦</span>Google Business Profile setup</li>
-          <li><span class="feature-check">✦</span>WhatsApp Business profile optimisation</li>
-          <li><span class="feature-check">✦</span>1 branded event poster template (editable)</li>
-          <li><span class="feature-check">✦</span>Instagram bio rewrite</li>
-        </ul>
-        <a href="#contact" class="service-cta">Get started</a>
-      </div>
-
-      <!-- Growth — Featured -->
-      <div class="service-card featured">
-        <div class="popular-badge">Most popular</div>
-        <div class="service-tier">Growth</div>
-        <div class="service-name">Event Organiser Pack</div>
-        <div class="service-price">₹25,000 <span>one-time</span></div>
-        <div class="service-retainer">+ ₹5,000/month retainer</div>
-        <hr class="service-divider">
-        <ul class="service-features">
-          <li><span class="feature-check">✦</span>Full single-page website with event calendar</li>
-          <li><span class="feature-check">✦</span>UPI payment link + RSVP form integration</li>
-          <li><span class="feature-check">✦</span>Instagram content — 12 posts/month</li>
-          <li><span class="feature-check">✦</span>WhatsApp broadcast setup for event reminders</li>
-          <li><span class="feature-check">✦</span>Post-event follow-up message sequence</li>
-          <li><span class="feature-check">✦</span>Monthly performance report</li>
-        </ul>
-        <a href="#contact" class="service-cta">Get started</a>
-      </div>
-
-      <!-- Premium -->
-      <div class="service-card">
-        <div class="service-tier">Premium</div>
-        <div class="service-name">Growth Pack</div>
-        <div class="service-price">₹45,000 <span>one-time</span></div>
-        <div class="service-retainer">+ ₹10,000/month retainer</div>
-        <hr class="service-divider">
-        <ul class="service-features">
-          <li><span class="feature-check">✦</span>Full website + ticketing (Townscript/Insider.in)</li>
-          <li><span class="feature-check">✦</span>Instagram + YouTube Shorts management</li>
-          <li><span class="feature-check">✦</span>WhatsApp automation — full attendee lifecycle</li>
-          <li><span class="feature-check">✦</span>Email newsletter setup (monthly)</li>
-          <li><span class="feature-check">✦</span>SEO for "bhajan events in [your city]"</li>
-          <li><span class="feature-check">✦</span>Sponsorship deck template (PDF)</li>
-        </ul>
-        <a href="#contact" class="service-cta">Get started</a>
-      </div>
-
+<!-- SERVICES -->
+<section id="services">
+  <div class="center">
+    <span class="section-tag">Our Services</span>
+    <h2 class="section-title">Everything Your Bhajan Event Needs Digitally</h2>
+    <p class="section-sub">From a professional website to sold-out events — we handle the digital side so you can focus on the satsang.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🌐</div>
+      <h3>Website & Digital Identity</h3>
+      <p>Professional website for your bhajan group. Event pages, photo gallery, contact form, and Google-ready profile.</p>
+      <div class="service-price">Included in Starter →</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎟️</div>
+      <h3>Online Ticketing & Attendee Database</h3>
+      <p>Custom ticket booking link. Collect attendee names, numbers, and emails automatically with every registration.</p>
+      <div class="service-price">Included in Event Organiser →</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📲</div>
+      <h3>WhatsApp Automation</h3>
+      <p>Automated event announcements to your entire list in seconds. Confirmations, reminders, and post-event thank yous.</p>
+      <div class="service-price">Included in Growth →</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📸</div>
+      <h3>Social Media Management</h3>
+      <p>Monthly Instagram content — posts, Reels, Stories. Event promotion, devotional content, and community building.</p>
+      <div class="service-price">From ₹5,000/month →</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎯</div>
+      <h3>Paid Ad Campaigns</h3>
+      <p>Targeted Meta/Instagram ads to reach devotees in your city. We set it up — you pay the ad budget directly to Meta.</p>
+      <div class="service-price">₹10,000 setup + your ad budget →</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🚀</div>
+      <h3>Full Event Launch</h3>
+      <p>End-to-end digital launch for a single event — poster, ticketing, WhatsApp blast, and social media promotion.</p>
+      <div class="service-price">₹20,000 per event →</div>
     </div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="how">
-  <div class="section-inner">
-    <div class="section-label">The process</div>
-    <h2 class="section-title">Up and running in 2 weeks</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <h3>Discovery call (free)</h3>
-        <p>30 minutes. We understand your events, your audience, and what you need most right now.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <h3>Package confirmation</h3>
-        <p>We propose the right package. 50% advance to begin work, 50% on delivery.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <h3>Build &amp; setup</h3>
-        <p>Website, automation, and content templates ready within 10–14 days.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <h3>Handover &amp; grow</h3>
-        <p>We train you on everything, then manage it monthly so you stay focused on your events.</p>
+<section id="process" class="how-bg">
+  <div class="center">
+    <span class="section-tag">Our Process</span>
+    <h2 class="section-title">14 Din Mein Digital Ready</h2>
+    <p class="section-sub" style="color:rgba(255,255,255,0.7);">A simple 4-step process to take your bhajan group fully online.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>Discovery Call</h4>
+      <p>We understand your events, your audience, and what digital setup you need right now.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>Strategy & Setup</h4>
+      <p>Website, Instagram, ticketing link, and WhatsApp — all set up and branded within the first week.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>First Event Promotion</h4>
+      <p>Your very next event gets a full digital launch — posts, story, WhatsApp blast, and online booking.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4>Grow & Scale</h4>
+      <p>We keep posting, running ads, and building your attendee list — so every event is bigger than the last.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why-us">
+  <div class="center">
+    <span class="section-tag">Why Choose Us</span>
+    <h2 class="section-title">We're Built for the Bhajan Community</h2>
+    <p class="section-sub">Most digital agencies don't understand your world. We do — and that makes all the difference.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🙏</div>
+      <h4>We Understand the Sentiment</h4>
+      <p>Every post, every campaign is created with respect for the spiritual nature of your events. No generic templates — everything is made for the bhajan & kirtan community.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🗣️</div>
+      <h4>Hindi + English — No Jargon</h4>
+      <p>We explain everything simply, communicate in Hindi or English as you prefer, and never confuse you with tech terms. You stay in control.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎯</div>
+      <h4>Niche Focus = Better Results</h4>
+      <p>We work only with bhajan & kirtan organisers. That means we know your audience, your seasonality, your content, and what actually works for events like yours.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📦</div>
+      <h4>Everything in One Place</h4>
+      <p>Website, Instagram, ticketing, WhatsApp, ads — you don't need to manage 5 different vendors. One team, one point of contact, everything handled.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💸</div>
+      <h4>Transparent Pricing — No Surprises</h4>
+      <p>Fixed packages with clear deliverables. No hidden charges, no inflated ad markups. You always know exactly what you're paying for and what you'll get.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <h4>Ready in 14 Days</h4>
+      <p>From first call to fully digital — website live, Instagram set up, tickets ready — in just 14 working days. Your next event is already better prepared.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TEASER -->
+<section class="pricing-teaser">
+  <span class="section-tag">Pricing</span>
+  <h2 class="section-title">Simple, Transparent Packages</h2>
+  <p class="section-sub" style="margin-left:auto;margin-right:auto;">No hidden charges. No guesswork. Choose what your bhajan group needs right now.</p>
+  <div class="packages-preview">
+    <div class="pkg-card">
+      <h3>Starter</h3>
+      <div class="price">₹12,000</div>
+      <div class="price-sub">One-time setup</div>
+      <p>Website + Google Business + Instagram setup. Perfect to get your digital identity started.</p>
+    </div>
+    <div class="pkg-card featured">
+      <div class="pkg-badge">Most Popular</div>
+      <h3>Event Organiser</h3>
+      <div class="price">₹25,000</div>
+      <div class="price-sub">Setup + ₹5,000/month</div>
+      <p>Complete setup + monthly Instagram management + ticketing + attendee database.</p>
+    </div>
+    <div class="pkg-card">
+      <h3>Growth</h3>
+      <div class="price">₹45,000</div>
+      <div class="price-sub">Setup + ₹10,000/month</div>
+      <p>Everything in Event Organiser + WhatsApp automation + Reels + ad strategy.</p>
+    </div>
+    <div class="pkg-card">
+      <h3>Event Launch</h3>
+      <div class="price">₹20,000</div>
+      <div class="price-sub">Per event</div>
+      <p>One big event, fully promoted — poster, tickets, WhatsApp blast, social media campaign.</p>
+    </div>
+  </div>
+  <a href="pricing.html" class="btn-primary" style="font-size:1rem;padding:1rem 2.5rem;">See Full Package Details →</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="about-om">ॐ</div>
+      <h3>Bhakti Sirf Pooja Nahi</h3>
+      <p>Bhakti is also in the effort you make so more souls can experience the satsang. We are here to amplify that effort — digitally.</p>
+    </div>
+    <div class="about-text">
+      <span class="section-tag">About Us</span>
+      <h2 class="section-title">Born from a Love for Bhajan & Kirtan</h2>
+      <p class="section-sub">The Sanatan Studio was started because we saw so many beautiful bhajan events being limited by reach. Events with 30 people that could have had 300. Satsangs that were unknown because they had no digital presence.</p>
+      <p class="section-sub" style="margin-top:1rem;">We combine digital marketing expertise with a deep understanding of the bhajan & kirtan community to help organisers grow their satsang — without the complexity.</p>
+      <div class="values">
+        <div class="value-item">
+          <div class="value-dot"></div>
+          <p><strong>We speak your language</strong> — no jargon, no confusion. We explain everything simply.</p>
+        </div>
+        <div class="value-item">
+          <div class="value-dot"></div>
+          <p><strong>We understand the sentiment</strong> — every post, every campaign respects the spiritual nature of your events.</p>
+        </div>
+        <div class="value-item">
+          <div class="value-dot"></div>
+          <p><strong>We are your digital team</strong> — you focus on the satsang, we handle the digital side completely.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PITCH BLOCK -->
-<section class="pitch-block" id="pitch">
-  <div class="section-inner pitch-inner">
-    <div class="section-label">The conversation that opens doors</div>
-    <h2 class="section-title" style="color: var(--white);">What to say to a prospect</h2>
-
-    <blockquote class="pitch-quote">
-      "Your events sell out. But after every event, your next one starts from zero — because you have no way to reach last month's attendees. We build the system that changes that."
-    </blockquote>
-
-    <div class="pitch-pain">
-      <div class="pain-item">
-        <div class="label">Before us</div>
-        <p>WhatsApp forwards, 24-hour stories, manual UPI collections, zero attendee database</p>
-      </div>
-      <div class="gain-item">
-        <div class="label">After us</div>
-        <p>Auto-reminders, permanent attendee list, ticket booking, growing Instagram presence</p>
-      </div>
-      <div class="pain-item">
-        <div class="label">Their fear</div>
-        <p>"What if next month nobody shows up?" — because they can't contact last month's crowd</p>
-      </div>
-      <div class="gain-item">
-        <div class="label">Your answer</div>
-        <p>"We build a list so you can message 500 past attendees the moment you announce your next event."</p>
-      </div>
-    </div>
-  </div>
+<!-- CTA BANNER -->
+<section class="cta-banner" id="contact">
+  <h2>Ready to Fill Your Next Bhajan Event?</h2>
+  <p>Get a free 15-minute call to see exactly how we can help your bhajan group go digital.</p>
+  <a href="https://wa.me/919326058691?text=Hello%2C%20I%20want%20a%20free%20digital%20health%20check%20for%20my%20bhajan%20event" target="_blank" class="btn-white btn-wa">💬 WhatsApp: +91 93260 58691</a>
+  <a href="mailto:thesanatanstudio9@gmail.com" class="btn-white">✉️ thesanatanstudio9@gmail.com</a>
 </section>
 
-<!-- CTA FOOTER -->
-<section class="cta-footer" id="contact">
-  <h2>Ready to grow your events?</h2>
-  <p>Book a free 30-minute discovery call. No pressure, no commitment.</p>
-  <a href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20discovery%20call%20for%20my%20bhajan%20events" class="btn-white">Book a free call on WhatsApp</a>
-</section>
-
+<!-- FOOTER -->
 <footer>
-  <p>Sanatan Studio · A venture of <a href="#">Media Divine Enterprise</a> · Mumbai, India</p>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>The <span>Sanatan</span> Studio</h3>
+      <p>Digital agency for bhajan & kirtan event organisers. We help satsangs reach more devotees through websites, social media, ticketing, and WhatsApp automation.</p>
+      <div class="footer-contact">
+        <a href="https://wa.me/919326058691" target="_blank">💬 +91 93260 58691</a>
+        <a href="mailto:thesanatanstudio9@gmail.com">✉️ thesanatanstudio9@gmail.com</a>
+        <a href="https://instagram.com/thesanatanstudio" target="_blank">📸 @thesanatanstudio</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#services">Website Setup</a>
+      <a href="#services">Social Media</a>
+      <a href="#services">WhatsApp Automation</a>
+      <a href="#services">Ticketing & Database</a>
+      <a href="#services">Paid Ads</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="pricing.html">Packages & Pricing</a>
+      <a href="#process">How It Works</a>
+      <a href="#about">About Us</a>
+      <a href="https://instagram.com/thesanatanstudio" target="_blank">Instagram</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 The Sanatan Studio. All rights reserved.</p>
+    <p>Made with <span>🙏</span> for the bhajan community</p>
+  </div>
 </footer>
 
 </body>
