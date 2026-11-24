@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bhakti Jam Mumbai · Sample by The Sanatan Studio</title>
+<meta name="description" content="Sample Gen Z bhajan clubbing event website with ticket drops, squad booking and setlist voting. Built by The Sanatan Studio.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#ff6a13">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bhakti Jam Mumbai · Sample website">
+<meta property="og:description" content="Sample Gen Z bhajan clubbing event website with ticket drops, squad booking and setlist voting. Built by The Sanatan Studio.">
+<meta property="og:url" content="https://demos.thesanatanstudio.com/bhakti-jam/">
+<meta property="og:image" content="https://demos.thesanatanstudio.com/bhakti-jam/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%238e1f2c'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23e8902a' font-family='serif'%3E%E0%A5%90%3C/text%3E%3C/svg%3E">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Outfit:wght@400;600;800&display=swap">
+<style>
+/* Layout: sticker-zine club night. Loud saffron hero, ticket drops, setlist voting, reel wall. */
+:root{
+  --saffron:#ff6a13; --ink:#14100f; --cream:#fff6ea; --lilac:#c9b6ff; --pink:#ff4f9a; --lime:#d6f36a;
+  --muted:#5a4d47;
+  --display:"Bowlby One", Impact, "Arial Black", sans-serif;
+  --body:"Outfit", "Segoe UI", system-ui, sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--cream);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.demo{background:var(--ink);color:var(--cream);font-size:13px;font-weight:600;text-align:center;padding-block:6px;letter-spacing:.04em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:14px;font:inherit;font-weight:800;text-decoration:none;cursor:pointer;
+  border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink);transition:transform .12s, box-shadow .12s;color:var(--ink)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.b-ink{background:var(--ink);color:var(--cream);box-shadow:4px 4px 0 var(--pink)}
+.b-ink:hover{box-shadow:6px 6px 0 var(--pink)}
+.b-lime{background:var(--lime)}
+.b-white{background:#fff}
+.mini{padding:8px 14px;font-size:14px;box-shadow:3px 3px 0 var(--ink)}
+.btn:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+
+nav{background:var(--saffron);border-bottom:2.5px solid var(--ink)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:12px;flex-wrap:wrap}
+.logo{font-family:var(--display);font-size:24px;color:var(--ink);text-decoration:none;letter-spacing:.01em}
+.logo span{background:var(--ink);color:var(--saffron);padding:0 6px;border-radius:6px}
+.nl{display:flex;gap:18px;font-weight:600}
+.nl a{color:var(--ink);text-decoration:none}
+.nl a:hover{text-decoration:underline}
+
+.hero{background:var(--saffron);border-bottom:2.5px solid var(--ink);overflow:hidden;position:relative}
+.hero .wrap{padding-block:44px 56px;position:relative}
+.kicker{display:inline-block;background:var(--ink);color:var(--lime);font-weight:800;font-size:14px;padding:6px 12px;border-radius:999px;letter-spacing:.06em;text-transform:uppercase}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(52px,12vw,140px);line-height:.88;margin:18px 0 10px;letter-spacing:-.01em;text-transform:uppercase}
+h1 .o{color:var(--cream);-webkit-text-stroke:2.5px var(--ink)}
+.tagline{font-size:clamp(19px,2.6vw,24px);font-weight:600;max-width:34ch;margin:0 0 26px}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 28px;padding:0;list-style:none}
+.meta li{background:var(--cream);border:2.5px solid var(--ink);border-radius:999px;padding:6px 14px;font-weight:600;font-size:15px}
+.ctas{display:flex;gap:14px;flex-wrap:wrap}
+.sticker{position:absolute;font-family:var(--display);text-transform:uppercase;border:2.5px solid var(--ink);border-radius:18px;padding:10px 14px;line-height:1;text-align:center;font-size:18px}
+.s1{right:4%;top:40px;background:var(--lilac);transform:rotate(8deg)}
+.s2{right:12%;top:150px;background:var(--lime);transform:rotate(-7deg);font-size:15px}
+.s3{right:3%;bottom:40px;background:var(--pink);color:#fff;transform:rotate(5deg);width:150px;font-size:15px}
+@media (prefers-reduced-motion:no-preference){
+  .s1{animation:bob 3s ease-in-out infinite}
+  .s3{animation:bob 3.6s ease-in-out infinite reverse}
+  @keyframes bob{50%{translate:0 -8px}}
+}
+
+.ticker{background:var(--ink);color:var(--lime);overflow:hidden;white-space:nowrap;border-bottom:2.5px solid var(--ink);font-family:var(--display);font-size:20px;padding-block:10px}
+.ticker div{display:inline-block;padding-left:100%}
+@media (prefers-reduced-motion:no-preference){ .ticker div{animation:tk 26s linear infinite} @keyframes tk{to{transform:translateX(-100%)}} }
+@media (prefers-reduced-motion:reduce){ .ticker div{padding-left:16px} }
+
+section{padding-block:64px}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(34px,6vw,58px);line-height:.95;margin:0 0 10px;text-transform:uppercase;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 30px;max-width:56ch;font-size:18px}
+
+.cd{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:34px}
+.cd div{background:#fff;border:2.5px solid var(--ink);border-radius:14px;padding:10px 16px;min-width:86px;text-align:center;box-shadow:4px 4px 0 var(--ink)}
+.cd b{display:block;font-family:var(--display);font-weight:400;font-size:36px;line-height:1;font-variant-numeric:tabular-nums}
+.cd span{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+
+.drops{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.drop{background:#fff;border:2.5px solid var(--ink);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:8px;box-shadow:6px 6px 0 var(--ink)}
+.drop.sold{background:#efe6da;box-shadow:none;opacity:.75}
+.drop.hot{background:var(--lilac)}
+.drop h3{margin:0;font-size:20px;font-weight:800}
+.drop .p{font-family:var(--display);font-size:42px;line-height:1;font-variant-numeric:tabular-nums}
+.drop .p s{font-family:var(--body);font-size:18px;color:var(--muted);font-weight:600}
+.drop ul{margin:4px 0 10px;padding-left:18px;flex:1;color:var(--muted)}
+.drop.hot ul{color:var(--ink)}
+.badge{align-self:flex-start;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:3px 10px;border-radius:999px;border:2px solid var(--ink)}
+.badge.red{background:var(--pink);color:#fff}
+.badge.g{background:var(--lime)}
+.left{font-size:14px;font-weight:600}
+
+.squad{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:24px;background:var(--ink);color:var(--cream);border-radius:22px;padding:28px}
+.squad h3{font-family:var(--display);font-weight:400;font-size:30px;margin:0 0 6px;text-transform:uppercase;color:var(--lime)}
+.squad p{margin:0;color:#d9cfc6}
+.sq form{display:grid;gap:12px}
+.sq label{display:grid;gap:5px;font-size:14px;font-weight:600;color:#d9cfc6}
+.sq input,.sq select{font:inherit;padding:11px 13px;border-radius:12px;border:2px solid var(--cream);background:#2a2320;color:var(--cream);width:100%}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.split{display:flex;justify-content:space-between;align-items:baseline;border-top:2px dashed #4a3f3a;padding-top:10px;gap:10px;flex-wrap:wrap}
+.split b{font-family:var(--display);font-weight:400;font-size:30px;color:var(--lime);font-variant-numeric:tabular-nums}
+.split small{color:#d9cfc6}
+.okb{background:var(--lime);color:var(--ink);border-radius:16px;padding:18px}
+.okb h4{margin:0 0 4px;font-family:var(--display);font-weight:400;font-size:24px;text-transform:uppercase}
+.okb p{margin:0}
+
+.vote{display:grid;gap:12px;max-width:720px}
+.vb{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;background:#fff;border:2.5px solid var(--ink);border-radius:16px;padding:12px 14px;position:relative;overflow:hidden;cursor:pointer;text-align:left;font:inherit;color:var(--ink)}
+.vb .fill{position:absolute;inset:0 auto 0 0;background:var(--lilac);z-index:0;transition:width .4s}
+.vb > span{position:relative;z-index:1}
+.vb b{font-weight:800}
+.vb small{display:block;color:var(--muted);font-size:13px}
+.vb .pc{font-family:var(--display);font-size:22px;font-variant-numeric:tabular-nums}
+.vb.me{border-color:var(--pink);box-shadow:4px 4px 0 var(--pink)}
+.vnote{font-size:14px;color:var(--muted);margin-top:12px}
+
+.how{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.how div{border:2.5px solid var(--ink);border-radius:18px;padding:18px;background:#fff}
+.how div:nth-child(1){background:var(--lime)}
+.how div:nth-child(3){background:var(--lilac)}
+.how b{display:block;font-family:var(--display);font-weight:400;font-size:20px;text-transform:uppercase;margin-bottom:4px}
+.how p{margin:0;font-size:15px}
+
+.reels{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.reel{aspect-ratio:9/16;max-width:100%;border:2.5px solid var(--ink);border-radius:18px;padding:12px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;overflow:hidden;position:relative}
+.reel:nth-child(1){background:linear-gradient(160deg,var(--pink),var(--saffron))}
+.reel:nth-child(2){background:linear-gradient(160deg,#5b3df5,var(--pink))}
+.reel:nth-child(3){background:linear-gradient(160deg,var(--saffron),#c8216b)}
+.reel:nth-child(4){background:linear-gradient(160deg,#1f1a3a,#5b3df5)}
+.reel .v{align-self:flex-start;background:rgba(0,0,0,.45);padding:3px 9px;border-radius:999px;font-size:13px;font-weight:600}
+.reel .play{align-self:center;width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center}
+.reel .play::after{content:"";border-left:16px solid var(--ink);border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
+.reel p{margin:0;font-weight:800;font-size:15px;line-height:1.25}
+.stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:26px;font-weight:600}
+.stats b{font-family:var(--display);font-weight:400;font-size:34px;display:block;line-height:1}
+
+.faq details{border-bottom:2.5px solid var(--ink);padding:16px 0}
+.faq summary{cursor:pointer;font-weight:800;font-size:19px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::after{content:"+";font-family:var(--display);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq p{margin:8px 0 0;color:var(--muted);max-width:62ch}
+
+footer{background:var(--ink);color:#d9cfc6;padding-block:30px;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer b{color:var(--lime)}
+
+@media (max-width:900px){
+  .sticker{display:none}
+  .drops,.squad{grid-template-columns:1fr}
+  .how,.reels{grid-template-columns:repeat(2,1fr)}
+  .nl{display:none}
+}
+</style>
+</head>
+<body>
+<div class="demo"><div class="wrap">SAMPLE WEBSITE by The Sanatan Studio · <a href="https://thesanatanstudio.com" style="color:inherit;text-decoration:underline">Get a website like this for your event →</a></div></div>
+
+<nav><div class="wrap">
+  <a class="logo" href="#top">Bhakti<span>Jam</span></a>
+  <div class="nl"><a href="#tix">Tickets</a><a href="#vote">Setlist</a><a href="#reels">Reels</a><a href="#faq">FAQ</a></div>
+  <a class="btn b-ink mini" href="#tix">Get tickets</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <span class="kicker">Vol. 07 · Mumbai</span>
+  <h1>Bhajan<br><span class="o">Clubbing</span><br>Night</h1>
+  <p class="tagline">Live band. 500 people. Hare Krishna on a full sound system. Zero alcohol, full energy.</p>
+  <ul class="meta">
+    <li>Sat 23 Jan 2027</li><li>7 PM till late</li><li>The Loft, Lower Parel</li>
+  </ul>
+  <div class="ctas">
+    <a class="btn b-ink" href="#tix">Grab your pass</a>
+    <a class="btn b-white" href="#vote">Vote the setlist</a>
+  </div>
+  <div class="sticker s1">Sober<br>rave ✦</div>
+  <div class="sticker s2">Kurta + sneakers</div>
+  <div class="sticker s3">Vol. 06 sold out in 4 days</div>
+</div></header>
+
+<div class="ticker" aria-hidden="true"><div>HARE KRISHNA ✦ RADHE RADHE ✦ JAI SHRI RAM ✦ HAR HAR MAHADEV ✦ GOVINDA BOLO ✦ BHAJAN CLUBBING ✦ VOL. 07 ✦ LOWER PAREL ✦ 21 NOV ✦</div></div>
+
+<main>
+<section id="tix"><div class="wrap">
+  <h2>Ticket drops</h2>
+  <p class="sub">Prices go up every drop. Early bird is gone. Phase 2 is live now.</p>
+  <div class="cd" aria-label="Countdown to Bhakti Jam Vol. 07">
+    <div><b id="d">--</b><span>Days</span></div><div><b id="h">--</b><span>Hrs</span></div><div><b id="m">--</b><span>Min</span></div><div><b id="s">--</b><span>Sec</span></div>
+  </div>
+  <div class="drops">
+    <div class="drop sold">
+      <span class="badge">Sold out</span>
+      <h3>Early Bird</h3>
+      <div class="p">₹399</div>
+      <ul><li>General entry</li><li>Bhakti Jam wristband</li></ul>
+      <span class="left">150 of 150 gone</span>
+    </div>
+    <div class="drop hot">
+      <span class="badge red">Live now</span>
+      <h3>Phase 2</h3>
+      <div class="p">₹599 <s>₹799</s></div>
+      <ul><li>General entry + wristband</li><li>Free mocktail at the bar</li><li>Kartal to keep</li></ul>
+      <span class="left">Only 74 left at this price</span>
+      <button class="btn b-ink" data-pick="599">Get Phase 2</button>
+    </div>
+    <div class="drop">
+      <span class="badge g">Best value</span>
+      <h3>Front Pit</h3>
+      <div class="p">₹1,199</div>
+      <ul><li>Right in front of the stage</li><li>Jam with the band on last track</li><li>Limited edition tee</li></ul>
+      <span class="left">40 spots total</span>
+      <button class="btn b-lime" data-pick="1199">Get Front Pit</button>
+    </div>
+  </div>
+
+  <div class="squad">
+    <div>
+      <h3>Coming with the squad?</h3>
+      <p>Book for 4 or more and everyone saves 15%. One person books, the rest pay their share on a link sent to the WhatsApp group.</p>
+    </div>
+    <div class="sq">
+      <form id="f" novalidate>
+        <div class="r2">
+          <label for="nm">Your name<input id="nm" placeholder="Aarav" autocomplete="given-name"></label>
+          <label for="ph">WhatsApp<input id="ph" inputmode="numeric" maxlength="10" placeholder="10 digits"></label>
+        </div>
+        <div class="r2">
+          <label for="tp">Pass
+            <select id="tp"><option value="599">Phase 2 · ₹599</option><option value="1199">Front Pit · ₹1,199</option></select>
+          </label>
+          <label for="qt">Squad size<input id="qt" type="number" min="1" max="12" value="4"></label>
+        </div>
+        <div class="split"><span><small>Total</small><br><b id="tot">₹2,036</b></span><span style="text-align:right"><small id="ph2">Per head, 15% squad off</small><br><b id="per">₹509</b></span></div>
+        <p id="err" role="alert" style="margin:0;color:var(--pink);font-weight:600;font-size:14px" hidden></p>
+        <button class="btn b-lime" type="submit">Lock the squad in</button>
+      </form>
+      <div class="okb" id="ok" hidden><h4>You're in 🔥</h4><p id="okt"></p></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="vote" style="background:#fff;border-block:2.5px solid var(--ink)"><div class="wrap">
+  <h2>You pick the setlist</h2>
+  <p class="sub">Tap the bhajan you want the band to close with. Top track plays at midnight.</p>
+  <div class="vote" id="vl"></div>
+  <p class="vnote" id="vn">Live voting closes 22 Jan. 1,248 votes so far.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>How the night goes</h2>
+  <p class="sub">Think concert meets satsang. No experience needed, lyrics on the big screen.</p>
+  <div class="how">
+    <div><b>7:00 Doors</b><p>Mocktails, chai bar, flash tattoos with mehendi.</p></div>
+    <div><b>7:45 Warm-up</b><p>Slow kirtan. Everyone finds their voice.</p></div>
+    <div><b>8:30 Jam</b><p>Full band. Remixed bhajans. You will dance.</p></div>
+    <div><b>10:30 Closer</b><p>The setlist winner, then prasad on the way out.</p></div>
+  </div>
+</div></section>
+
+<section id="reels" style="background:var(--lilac);border-block:2.5px solid var(--ink)"><div class="wrap">
+  <h2>Last time on Bhakti Jam</h2>
+  <p class="sub" style="color:var(--ink)">Tap through on Instagram @bhaktijam.demo</p>
+  <div class="reels">
+    <a class="reel" href="https://www.instagram.com" target="_blank" rel="noopener"><span class="v">2.1M views</span><span class="play"></span><p>When 500 people scream “Hare Krishna” on the drop</p></a>
+    <a class="reel" href="https://www.instagram.com" target="_blank" rel="noopener"><span class="v">890K views</span><span class="play"></span><p>Achyutam Keshavam, but make it a rave</p></a>
+    <a class="reel" href="https://www.instagram.com" target="_blank" rel="noopener"><span class="v">640K views</span><span class="play"></span><p>POV: your first bhajan clubbing night</p></a>
+    <a class="reel" href="https://www.instagram.com" target="_blank" rel="noopener"><span class="v">410K views</span><span class="play"></span><p>The dholak solo that broke the floor</p></a>
+  </div>
+  <div class="stats">
+    <span><b>6</b>sold-out nights</span><span><b>3,100+</b>jammers so far</span><span><b>48K</b>on Instagram</span>
+  </div>
+</div></section>
+
+<section class="faq" id="faq"><div class="wrap">
+  <h2>Quick questions</h2>
+  <details><summary>Is it actually a party or a satsang?</summary><p>Both. It's a live concert where every song is a bhajan. People sing, dance and leave feeling light.</p></details>
+  <details><summary>Alcohol?</summary><p>None. It's a sober night. The mocktail and chai bar runs all evening.</p></details>
+  <details><summary>Can I bring my parents?</summary><p>Yes, and they usually end up dancing harder than you. Age 12+ only.</p></details>
+  <details><summary>What should I wear?</summary><p>Anything comfortable. Most people go kurta with sneakers. Shoes stay on, it's a club floor.</p></details>
+  <details><summary>Refunds?</summary><p>No refunds, but you can transfer your pass to a friend up to 24 hours before doors.</p></details>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>Bhakti Jam · All names, numbers and stats on this page are samples</span>
+  <span>Website by <b>The Sanatan Studio</b> · <a href="https://thesanatanstudio.com" style="color:inherit">thesanatanstudio.com</a></span>
+</div></footer>
+
+<script>
+(function(){
+  var target=new Date("2027-01-23T19:00:00+05:30").getTime();
+  function pad(n){return String(n).padStart(2,"0")}
+  function tick(){var x=Math.max(0,target-Date.now());
+    d.textContent=Math.floor(x/864e5);h.textContent=pad(Math.floor(x/36e5)%24);m.textContent=pad(Math.floor(x/6e4)%60);s.textContent=pad(Math.floor(x/1e3)%60);}
+  var d=document.getElementById("d"),h=document.getElementById("h"),m=document.getElementById("m"),s=document.getElementById("s");
+  tick();setInterval(tick,1000);
+
+  var tp=document.getElementById("tp"),qt=document.getElementById("qt"),tot=document.getElementById("tot"),per=document.getElementById("per"),ph2=document.getElementById("ph2");
+  function inr(n){return "₹"+Math.round(n).toLocaleString("en-IN")}
+  function calc(){var q=Math.min(12,Math.max(1,parseInt(qt.value,10)||1)),p=+tp.value,off=q>=4?.85:1;
+    tot.textContent=inr(p*q*off);per.textContent=inr(p*off);ph2.textContent=q>=4?"Per head, 15% squad off":"Per head · add "+(4-q)+" more for 15% off";return q;}
+  tp.addEventListener("change",calc);qt.addEventListener("input",calc);calc();
+  document.querySelectorAll("[data-pick]").forEach(function(b){b.addEventListener("click",function(){tp.value=b.dataset.pick;calc();document.getElementById("nm").focus();});});
+  var f=document.getElementById("f"),err=document.getElementById("err");
+  f.addEventListener("submit",function(e){e.preventDefault();
+    var nm=document.getElementById("nm").value.trim(),ph=document.getElementById("ph").value.trim();
+    if(!nm){err.textContent="Add your name so the passes have an owner.";err.hidden=false;return}
+    if(!/^[6-9]\d{9}$/.test(ph)){err.textContent="Enter a 10-digit Indian mobile number, without +91.";err.hidden=false;return}
+    err.hidden=true;var q=calc();
+    document.getElementById("okt").textContent=nm+", squad of "+q+" locked for "+tot.textContent+". This is a demo, so nothing was charged. On the live site, each friend gets a UPI split link on WhatsApp.";
+    f.hidden=true;document.getElementById("ok").hidden=false;});
+
+  var songs=[
+    {t:"Hare Krishna Mahamantra",a:"Rave edit · 140 BPM",v:412},
+    {t:"Achyutam Keshavam",a:"Acoustic to drop",v:338},
+    {t:"Shiv Tandav Stotram",a:"Dhol + synth",v:301},
+    {t:"Ram Siya Ram",a:"Crowd singalong",v:197}
+  ];
+  var mine=null; try{mine=localStorage.getItem("bj-vote")}catch(e){}
+  var vl=document.getElementById("vl");
+  function render(){
+    var total=songs.reduce(function(a,s){return a+s.v+(mine===s.t?1:0)},0);vl.innerHTML="";
+    songs.forEach(function(s){var v=s.v+(mine===s.t?1:0),pc=Math.round(v/total*100);
+      var b=document.createElement("button");b.type="button";b.className="vb"+(mine===s.t?" me":"");
+      b.innerHTML='<i class="fill" style="width:'+(mine?pc:0)+'%"></i><span><b>'+s.t+'</b><small>'+s.a+'</small></span><span class="pc">'+(mine?pc+"%":"Vote")+'</span>';
+      b.setAttribute("aria-pressed",mine===s.t);
+      b.addEventListener("click",function(){mine=s.t;try{localStorage.setItem("bj-vote",mine)}catch(e){}render();document.getElementById("vn").textContent="Your vote is in. Share the page with your squad so they vote too.";});
+      vl.appendChild(b);});
+  }
+  render();
+})();
+</script>
+</body>
+</html>

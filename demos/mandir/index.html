@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shri Radha Govind Mandir · Sample by The Sanatan Studio</title>
+<meta name="description" content="Sample temple website with live aarti timings, utsav calendar and seva booking. Built by The Sanatan Studio.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0a4d47">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shri Radha Govind Mandir · Sample website">
+<meta property="og:description" content="Sample temple website with live aarti timings, utsav calendar and seva booking. Built by The Sanatan Studio.">
+<meta property="og:url" content="https://demos.thesanatanstudio.com/mandir/">
+<meta property="og:image" content="https://demos.thesanatanstudio.com/mandir/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%238e1f2c'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23e8902a' font-family='serif'%3E%E0%A5%90%3C/text%3E%3C/svg%3E">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Hind:wght@400;500;600&display=swap">
+<style>
+/* Layout: temple daily-life page. Today's darshan first, then utsav calendar, seva and donation, kirtan, visit info. */
+:root{
+  --marble:#f6f7f4; --paper:#ffffff; --ink:#18322f; --muted:#5b6e6a;
+  --peacock:#0e6b62; --peacock-deep:#0a4d47; --gold:#c9932b; --kumkum:#b8322a;
+  --line:#dde4e1; --tint:#e7f0ed;
+  --display:"Tiro Devanagari Hindi", Georgia, serif;
+  --body:"Hind", "Segoe UI", system-ui, sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--marble);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:var(--peacock)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.demo{background:var(--ink);color:var(--marble);font-size:13px;font-weight:600;text-align:center;padding-block:6px;letter-spacing:.04em}
+nav{background:var(--paper);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.mark{width:44px;height:44px;border-radius:50%;background:var(--peacock);display:grid;place-items:center;color:var(--gold);font-family:var(--display);font-size:22px;flex:none}
+.logo b{font-family:var(--display);font-weight:400;font-size:21px;display:block;line-height:1.15}
+.logo small{color:var(--muted);font-size:13px}
+.navlinks{display:flex;gap:20px;font-size:15px;flex-wrap:wrap}
+.navlinks a{color:var(--muted);text-decoration:none}
+.navlinks a:hover,.navlinks a:focus-visible{color:var(--peacock)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:10px;font:inherit;font-weight:600;text-decoration:none;border:0;cursor:pointer}
+.btn-main{background:var(--peacock);color:#fff}
+.btn-main:hover{background:var(--peacock-deep)}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-line{background:transparent;color:var(--peacock);border:1.5px solid var(--peacock)}
+.btn:focus-visible,input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.mini{padding:8px 14px;font-size:14px}
+
+.hero{background:linear-gradient(160deg,var(--peacock-deep),var(--peacock));color:#fff;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;opacity:.12;
+  background-image:radial-gradient(circle at 20px 20px, var(--gold) 2px, transparent 3px);background-size:40px 40px}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.2fr 1fr;gap:36px;padding-block:52px 56px;align-items:center}
+.shlok{font-family:var(--display);color:var(--gold);font-size:20px;margin:0}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(38px,6.5vw,62px);line-height:1.08;margin:10px 0 14px;text-wrap:balance}
+.lede{max-width:50ch;margin:0 0 24px;color:#d5ebe6}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.hero .btn-line{color:#fff;border-color:rgba(255,255,255,.6)}
+
+.today{background:var(--paper);color:var(--ink);border-radius:16px;padding:22px;box-shadow:0 18px 40px rgba(10,77,71,.35)}
+.today-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.today-h h2{margin:0;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.today-h span{font-size:14px;color:var(--muted)}
+.aarti{list-style:none;margin:0;padding:0}
+.aarti li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;font-variant-numeric:tabular-nums}
+.aarti li + li{border-top:1px solid var(--line)}
+.aarti li.next{background:var(--tint);border-top-color:transparent}
+.aarti li.next + li{border-top-color:transparent}
+.aarti .t{font-weight:600}
+.aarti .name small{display:block;color:var(--muted);font-size:13px;line-height:1.2}
+.aarti .done{color:var(--muted)}
+.pill{font-size:12px;font-weight:600;background:var(--kumkum);color:#fff;padding:2px 9px;border-radius:999px;margin-left:8px;white-space:nowrap}
+.status{margin-top:12px;font-size:14px;display:flex;align-items:center;gap:8px;color:var(--muted)}
+.dot{width:9px;height:9px;border-radius:50%;background:#2a9d5c;flex:none}
+.dot.closed{background:var(--kumkum)}
+
+section{padding-block:60px}
+section.alt{background:var(--paper);border-block:1px solid var(--line)}
+h2.sec{font-family:var(--display);font-weight:400;font-size:clamp(28px,4.2vw,40px);margin:0 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 30px;max-width:62ch}
+
+.cal{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.ev{display:flex;gap:16px;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px}
+.date{flex:none;width:68px;text-align:center;border-radius:10px;background:var(--tint);padding:8px 4px;font-variant-numeric:tabular-nums}
+.date b{display:block;font-family:var(--display);font-weight:400;font-size:28px;line-height:1.1;color:var(--peacock)}
+.date span{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.ev h3{margin:0;font-size:18px}
+.ev p{margin:2px 0 8px;color:var(--muted);font-size:15px}
+.chip{display:inline-block;font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px;background:var(--marble);border:1px solid var(--line);color:var(--muted)}
+.chip.big{background:#fbf1dc;border-color:#ecd5a3;color:#7a5410}
+
+.seva{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:start}
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0}
+.opt label{display:grid;gap:4px;height:100%;padding:16px;border:1.5px solid var(--line);border-radius:12px;cursor:pointer;background:var(--marble)}
+.opt input:checked + label{border-color:var(--peacock);background:var(--tint)}
+.opt input:focus-visible + label{outline:2px solid var(--gold);outline-offset:2px}
+.opt b{font-size:17px}
+.opt span{font-size:14px;color:var(--muted);line-height:1.4}
+.opt .amt{font-family:var(--display);font-size:24px;color:var(--peacock);font-variant-numeric:tabular-nums}
+.pay{background:var(--marble);border:1px solid var(--line);border-radius:16px;padding:22px;display:grid;gap:14px}
+.pay h3{margin:0;font-family:var(--display);font-weight:400;font-size:24px}
+form{display:grid;gap:12px}
+label.f{font-size:14px;color:var(--muted);display:grid;gap:5px}
+input[type=text],input[type=tel],input[type=number],select{background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:11px 13px;font:inherit;width:100%}
+.sum{display:flex;justify-content:space-between;align-items:baseline;border-top:1px dashed var(--line);padding-top:10px}
+.sum b{font-family:var(--display);font-weight:400;font-size:30px;color:var(--peacock);font-variant-numeric:tabular-nums}
+.upi{display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.upi code{font-family:var(--body);font-weight:600;user-select:all}
+.upi small{color:var(--muted);width:100%}
+.thanks{background:var(--tint);border:1px solid var(--peacock);border-radius:12px;padding:16px}
+.thanks h4{margin:0 0 4px;font-family:var(--display);font-weight:400;font-size:22px;color:var(--peacock)}
+.thanks p{margin:0;color:var(--muted);font-size:15px}
+.raised{font-size:14px;color:var(--muted)}
+.raised .bar{height:8px;background:var(--line);border-radius:8px;overflow:hidden;margin-top:6px}
+.raised i{display:block;height:100%;width:68%;background:var(--gold)}
+
+.week{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;min-width:520px}
+.week th,.week td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}
+.week th{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.week tr.on td{background:var(--tint)}
+.tw{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:14px}
+.live{margin-top:20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:16px 20px;border-radius:14px;background:var(--ink);color:#fff}
+.live p{margin:0;flex:1;min-width:220px}
+.live b{color:var(--gold)}
+
+.visit{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.visit h3{margin:0 0 6px;font-size:17px}
+.visit p{margin:0;color:var(--muted);font-size:15px}
+
+footer{background:var(--ink);color:#b6c8c4;padding-block:28px;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer b{color:var(--gold)}
+
+@media (max-width:860px){
+  .hero .wrap,.seva{grid-template-columns:1fr}
+  .cal,.visit{grid-template-columns:1fr}
+  .navlinks{display:none}
+}
+@media (max-width:420px){ .opts{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="demo"><div class="wrap">SAMPLE WEBSITE by The Sanatan Studio · <a href="https://thesanatanstudio.com" style="color:inherit;text-decoration:underline">Get a website like this for your event →</a></div></div>
+
+<nav><div class="wrap">
+  <a class="logo" href="#top"><span class="mark">श्री</span><span><b>Shri Radha Govind Mandir</b><small>Vijay Nagar, Indore · Since 1987</small></span></a>
+  <div class="navlinks"><a href="#utsav">Utsav</a><a href="#seva">Seva &amp; Daan</a><a href="#kirtan">Kirtan</a><a href="#visit">Visit</a></div>
+  <a class="btn btn-main mini" href="#seva">Offer seva</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div>
+    <p class="shlok">राधे राधे · जय श्री गोविंद</p>
+    <h1>Darshan, kirtan and seva, every day</h1>
+    <p class="lede">A neighbourhood mandir where 600+ families gather for aarti, Sunday satsang and the yearly Bhagwat Katha. Check today's darshan timings, book a seva, or join the kirtan.</p>
+    <div class="btns">
+      <a class="btn btn-gold" href="#seva">Book a seva</a>
+      <a class="btn btn-line" href="#utsav">Upcoming utsav</a>
+    </div>
+  </div>
+  <aside class="today" aria-label="Today's aarti timings">
+    <div class="today-h"><h2>Today's darshan</h2><span id="tdate"></span></div>
+    <ul class="aarti" id="aarti"></ul>
+    <div class="status"><span class="dot" id="sdot"></span><span id="stext"></span></div>
+  </aside>
+</div></header>
+
+<main>
+<section id="utsav"><div class="wrap">
+  <h2 class="sec">Upcoming utsav and events</h2>
+  <p class="sub">All are welcome. Bhandara follows every major utsav.</p>
+  <div class="cal">
+    <div class="ev"><div class="date"><b>10</b><span>Jan</span></div><div><h3>Sunday Satsang</h3><p>5:00 PM · Pravachan and sankirtan in the main hall</p><span class="chip">Every Sunday</span></div></div>
+    <div class="ev"><div class="date"><b>18</b><span>Jan</span></div><div><h3>Shrimad Bhagwat Katha</h3><p>18 to 24 Jan 2027 · 3:00 to 7:00 PM daily</p><span class="chip big">7-day katha</span></div></div>
+    <div class="ev"><div class="date"><b>31</b><span>Jan</span></div><div><h3>Hari Naam Kirtan</h3><p>7:30 PM · Akhand Hare Krishna naam till 10 PM</p><span class="chip">Monthly</span></div></div>
+    <div class="ev"><div class="date"><b>07</b><span>Feb</span></div><div><h3>Annadaan Bhandara Utsav</h3><p>11:00 AM · Chhappan bhog darshan and bhandara for all</p><span class="chip big">Bhandara</span></div></div>
+  </div>
+</div></section>
+
+<section id="seva" class="alt"><div class="wrap seva">
+  <div>
+    <h2 class="sec">Seva and daan</h2>
+    <p class="sub">Choose a seva. It is offered in your family's name, and the receipt comes on WhatsApp with 80G details.</p>
+    <div class="opts" role="radiogroup" aria-label="Seva options">
+      <div class="opt"><input type="radio" name="sv" id="sv1" value="Deep Daan" data-amt="101"><label for="sv1"><b>Deep Daan</b><span>Ghee diya at sandhya aarti</span><span class="amt">₹101</span></label></div>
+      <div class="opt"><input type="radio" name="sv" id="sv2" value="Tulsi Seva" data-amt="251"><label for="sv2"><b>Tulsi Seva</b><span>Tulsi mala for Thakurji, one day</span><span class="amt">₹251</span></label></div>
+      <div class="opt"><input type="radio" name="sv" id="sv3" value="Annadaan" data-amt="1100" checked><label for="sv3"><b>Annadaan</b><span>Prasad for 50 devotees at bhandara</span><span class="amt">₹1,100</span></label></div>
+      <div class="opt"><input type="radio" name="sv" id="sv4" value="Shringar Seva" data-amt="5100"><label for="sv4"><b>Shringar Seva</b><span>Full poshak and phool shringar for a day</span><span class="amt">₹5,100</span></label></div>
+    </div>
+    <div class="raised" style="margin-top:22px">Katha 2027 bhandara fund: <b style="color:var(--ink)">₹3,40,000</b> of ₹5,00,000 raised<div class="bar"><i></i></div></div>
+  </div>
+  <div class="pay">
+    <h3>Your offering</h3>
+    <form id="sf" novalidate>
+      <label class="f" for="dn">Name for sankalp<input type="text" id="dn" placeholder="e.g. Sharma parivar"></label>
+      <label class="f" for="dp">WhatsApp number for receipt<input type="tel" id="dp" inputmode="numeric" maxlength="10" placeholder="10-digit mobile"></label>
+      <label class="f" for="dd">Seva date
+        <select id="dd"><option>Next available day</option><option>Hari Naam Kirtan, 31 Jan</option><option>Bhandara Utsav, 7 Feb</option><option>My family occasion (we will call you)</option></select>
+      </label>
+      <div class="sum"><span id="sname">Annadaan</span><b id="samt">₹1,100</b></div>
+      <div class="upi"><span>Pay by UPI</span><code id="upi">radhagovind.demo@upi</code><button type="button" class="btn btn-line mini" id="cu">Copy UPI ID</button><small>On the live site this opens GPay, PhonePe or Paytm directly.</small></div>
+      <p id="serr" role="alert" style="margin:0;color:var(--kumkum);font-size:14px" hidden></p>
+      <button class="btn btn-main" type="submit">Confirm seva</button>
+    </form>
+    <div class="thanks" id="st" hidden>
+      <h4>Seva noted. Radhe Radhe 🙏</h4>
+      <p id="stext2"></p>
+    </div>
+  </div>
+</div></section>
+
+<section id="kirtan"><div class="wrap">
+  <h2 class="sec">Weekly kirtan and satsang</h2>
+  <p class="sub">Open to everyone. Today's programme is highlighted.</p>
+  <div class="tw"><table class="week" id="wk">
+    <thead><tr><th>Day</th><th>Programme</th><th>Time</th></tr></thead>
+    <tbody>
+      <tr data-d="1"><td>Monday</td><td>Shiv bhajan and Rudrashtakam</td><td>7:30 PM</td></tr>
+      <tr data-d="2"><td>Tuesday</td><td>Sundarkand path</td><td>7:00 PM</td></tr>
+      <tr data-d="3"><td>Wednesday</td><td>Bal sanskar class for children</td><td>5:30 PM</td></tr>
+      <tr data-d="4"><td>Thursday</td><td>Vishnu Sahasranama</td><td>7:00 PM</td></tr>
+      <tr data-d="5"><td>Friday</td><td>Mahila mandal bhajan</td><td>4:00 PM</td></tr>
+      <tr data-d="6"><td>Saturday</td><td>Hanuman Chalisa, 11 path</td><td>7:30 PM</td></tr>
+      <tr data-d="0"><td>Sunday</td><td>Satsang, pravachan and sankirtan</td><td>5:00 PM</td></tr>
+    </tbody>
+  </table></div>
+  <div class="live">
+    <p><b>Live darshan</b> on YouTube every evening at sandhya aarti. 2,800 subscribers watch from 14 countries.</p>
+    <a class="btn btn-gold mini" href="https://www.youtube.com" target="_blank" rel="noopener">Watch live</a>
+  </div>
+</div></section>
+
+<section id="visit" class="alt"><div class="wrap">
+  <h2 class="sec">Plan your visit</h2>
+  <div class="visit">
+    <div><h3>Address</h3><p>Plot 14, Scheme 54, Vijay Nagar, Indore 452010<br><a href="https://maps.google.com" target="_blank" rel="noopener">Open in Google Maps</a></p></div>
+    <div><h3>Temple office</h3><p>9 AM to 1 PM and 4 PM to 8 PM<br>WhatsApp <span style="user-select:all;font-weight:600;color:var(--ink)">+91 90000 00000</span></p></div>
+    <div><h3>Facilities</h3><p>Wheelchair ramp, shoe stand, drinking water, two-wheeler parking. Mobile phones on silent inside garbhagriha.</p></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>Shri Radha Govind Mandir Trust · All names, numbers and figures on this page are samples</span>
+  <span>Website by <b>The Sanatan Studio</b> · <a href="https://thesanatanstudio.com" style="color:inherit">thesanatanstudio.com</a></span>
+</div></footer>
+
+<script>
+(function(){
+  var schedule = [
+    {n:"Mangla Aarti", h:"मंगला", t:"05:30", e:"06:00"},
+    {n:"Shringar Darshan", h:"श्रृंगार", t:"07:30", e:"11:30"},
+    {n:"Rajbhog Aarti", h:"राजभोग", t:"12:00", e:"12:30"},
+    {n:"Utthapan Darshan", h:"उत्थापन", t:"16:00", e:"18:45"},
+    {n:"Sandhya Aarti", h:"संध्या", t:"19:00", e:"19:30"},
+    {n:"Shayan Aarti", h:"शयन", t:"21:00", e:"21:15"}
+  ];
+  // Use India time regardless of viewer location
+  var now = new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Kolkata"}));
+  var mins = now.getHours()*60 + now.getMinutes();
+  function toM(s){var p=s.split(":");return +p[0]*60 + +p[1]}
+  function show(s){var m=toM(s),h=Math.floor(m/60),mm=String(m%60).padStart(2,"0");return ((h%12)||12)+":"+mm+(h<12?" AM":" PM")}
+  document.getElementById("tdate").textContent = now.toLocaleDateString("en-IN",{weekday:"long",day:"numeric",month:"short"});
+  var ul = document.getElementById("aarti"), nextIdx = -1, openNow = false;
+  schedule.forEach(function(a,i){ if(mins>=toM(a.t)&&mins<toM(a.e)) openNow=true; if(nextIdx<0 && toM(a.t)>mins) nextIdx=i; });
+  schedule.forEach(function(a,i){
+    var li = document.createElement("li"), past = toM(a.e) <= mins;
+    if(i===nextIdx) li.className="next";
+    li.innerHTML = '<span class="name'+(past?' done':'')+'">'+a.n+'<small>'+a.h+'</small></span><span class="t'+(past?' done':'')+'">'+show(a.t)+(i===nextIdx?'<span class="pill">Next</span>':'')+'</span>';
+    ul.appendChild(li);
+  });
+  var st = document.getElementById("stext"), dot = document.getElementById("sdot");
+  if(openNow){ st.textContent = "Darshan open now"; }
+  else if(nextIdx>=0){ dot.classList.add("closed"); var w=toM(schedule[nextIdx].t)-mins; st.textContent = "Pat closed. "+schedule[nextIdx].n+" in "+(w>=60?Math.floor(w/60)+" hr ":"")+(w%60)+" min"; }
+  else { dot.classList.add("closed"); st.textContent = "Mandir closed for the night. Mangla aarti at 5:30 AM"; }
+
+  var d = now.getDay(); var row = document.querySelector('#wk tr[data-d="'+d+'"]'); if(row) row.className="on";
+
+  var radios = document.querySelectorAll('input[name="sv"]'), sname=document.getElementById("sname"), samt=document.getElementById("samt");
+  function cur(){ return document.querySelector('input[name="sv"]:checked'); }
+  function upd(){ var r=cur(); sname.textContent=r.value; samt.textContent="₹"+(+r.dataset.amt).toLocaleString("en-IN"); }
+  radios.forEach(function(r){ r.addEventListener("change", upd); }); upd();
+
+  var f=document.getElementById("sf"), err=document.getElementById("serr");
+  f.addEventListener("submit", function(e){
+    e.preventDefault();
+    var nm=document.getElementById("dn").value.trim(), ph=document.getElementById("dp").value.trim();
+    if(!nm){ err.textContent="Please add the name the sankalp should be taken in."; err.hidden=false; return; }
+    if(!/^[6-9]\d{9}$/.test(ph)){ err.textContent="Enter a 10-digit Indian mobile number, without +91."; err.hidden=false; return; }
+    err.hidden=true;
+    var r=cur();
+    document.getElementById("stext2").textContent = r.value+" of ₹"+(+r.dataset.amt).toLocaleString("en-IN")+" for "+nm+", "+document.getElementById("dd").value+". This is a demo, so no payment was taken. On the live site, the 80G receipt goes to WhatsApp after UPI payment.";
+    f.hidden=true; document.getElementById("st").hidden=false;
+  });
+
+  var cu=document.getElementById("cu");
+  cu.addEventListener("click", function(){
+    function sel(){ var rg=document.createRange(); rg.selectNodeContents(document.getElementById("upi")); var s=getSelection(); s.removeAllRanges(); s.addRange(rg); cu.textContent="Selected"; }
+    try{ navigator.clipboard.writeText(document.getElementById("upi").textContent).then(function(){cu.textContent="Copied";setTimeout(function(){cu.textContent="Copy UPI ID"},1600)}, sel); }catch(e){ sel(); }
+  });
+})();
+</script>
+</body>
+</html>

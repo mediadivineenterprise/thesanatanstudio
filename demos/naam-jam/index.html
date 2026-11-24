@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Naam Jam Sunset Tour · Sample by The Sanatan Studio</title>
+<meta name="description" content="Sample rooftop kirtan jam tour website with city dates, open mic signup and Jam Pass. Built by The Sanatan Studio.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#231c3d">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Naam Jam Sunset Tour · Sample website">
+<meta property="og:description" content="Sample rooftop kirtan jam tour website with city dates, open mic signup and Jam Pass. Built by The Sanatan Studio.">
+<meta property="og:url" content="https://demos.thesanatanstudio.com/naam-jam/">
+<meta property="og:image" content="https://demos.thesanatanstudio.com/naam-jam/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%238e1f2c'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23e8902a' font-family='serif'%3E%E0%A5%90%3C/text%3E%3C/svg%3E">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=Manrope:wght@400;500;700&display=swap">
+<style>
+/* Layout: chill sunset-rooftop tour site. Dusk gradient hero, city tour filter, open mic signup, Jam Pass membership. */
+:root{
+  --dusk:#231c3d; --dusk-2:#3a2d63; --lav:#f1eefb; --card:#ffffff; --coral:#ff7a59; --peach:#ffc6a3; --sky:#7b8cff;
+  --ink:#231c3d; --muted:#625a80; --line:#ddd7f0;
+  --display:"Syne", "Trebuchet MS", system-ui, sans-serif;
+  --body:"Manrope", "Segoe UI", system-ui, sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--lav);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.demo{background:var(--dusk);color:var(--peach);font-size:13px;font-weight:700;text-align:center;padding-block:6px;letter-spacing:.04em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:999px;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;border:0}
+.b-coral{background:var(--coral);color:#fff}
+.b-coral:hover{background:#ff6640}
+.b-glass{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.35)}
+.b-dark{background:var(--dusk);color:#fff}
+.mini{padding:8px 16px;font-size:14px}
+.btn:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+
+.hero{background:linear-gradient(180deg,var(--dusk) 0%,var(--dusk-2) 38%,#8a4f8f 70%,var(--coral) 92%,var(--peach) 100%);color:#fff;position:relative;overflow:hidden}
+.hero nav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:16px;flex-wrap:wrap}
+.logo{font-family:var(--display);font-weight:800;font-size:24px;color:#fff;text-decoration:none;letter-spacing:-.02em}
+.logo i{font-style:normal;color:var(--peach)}
+.nl{display:flex;gap:20px;font-weight:500;font-size:15px}
+.nl a{color:rgba(255,255,255,.8);text-decoration:none}
+.nl a:hover{color:#fff}
+.sun{position:absolute;left:50%;bottom:-150px;translate:-50% 0;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,#ffe2b8 0%,#ffb27a 45%,rgba(255,122,89,0) 70%);pointer-events:none}
+@media (prefers-reduced-motion:no-preference){ .sun{animation:rise 6s ease-out both} @keyframes rise{from{bottom:-260px;opacity:.4}} }
+.hin{position:relative;text-align:center;padding-block:44px 120px}
+.eb{font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:13px;color:var(--peach)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(46px,9vw,104px);line-height:.95;letter-spacing:-.035em;margin:14px auto 16px;max-width:12ch;text-wrap:balance}
+.hin p{max-width:48ch;margin:0 auto 26px;color:rgba(255,255,255,.85);font-size:18px}
+.hin .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.counter{display:flex;justify-content:center;gap:34px;flex-wrap:wrap;margin-top:36px;font-size:14px;color:rgba(255,255,255,.85)}
+.counter b{display:block;font-family:var(--display);font-size:30px;color:#fff;font-variant-numeric:tabular-nums}
+
+section{padding-block:64px}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(32px,5vw,50px);letter-spacing:-.03em;line-height:1;margin:0 0 10px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 28px;max-width:58ch}
+
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tab{font:inherit;font-weight:700;font-size:15px;padding:9px 18px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--dusk);border-color:var(--dusk);color:#fff}
+.tour{display:grid;gap:12px}
+.stop{display:grid;grid-template-columns:96px 1fr auto;gap:18px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px 18px}
+.dt{text-align:center;border-radius:14px;background:var(--lav);padding:8px 4px;font-variant-numeric:tabular-nums}
+.dt b{display:block;font-family:var(--display);font-size:30px;line-height:1}
+.dt span{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.stop h3{margin:0;font-size:19px;font-family:var(--display);letter-spacing:-.01em}
+.stop p{margin:2px 0 0;color:var(--muted);font-size:15px}
+.st{display:inline-block;margin-top:6px;font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px}
+.st.open{background:#e3f6ea;color:#1e7a45}
+.st.few{background:#ffe5dc;color:#b8401f}
+.st.wait{background:#ece9f7;color:var(--muted)}
+.empty{color:var(--muted);padding:12px 0}
+
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-radius:22px;overflow:hidden;border:1px solid var(--line)}
+.flow div{padding:20px;background:var(--card)}
+.flow div + div{border-left:1px solid var(--line)}
+.flow .tm{font-family:var(--display);font-weight:800;font-size:22px;color:var(--coral);font-variant-numeric:tabular-nums}
+.flow b{display:block;margin:4px 0 2px}
+.flow p{margin:0;font-size:15px;color:var(--muted)}
+
+.mic{display:grid;grid-template-columns:1fr 1.1fr;gap:36px;align-items:start;background:var(--dusk);color:#fff;border-radius:28px;padding:36px}
+.mic h2{color:#fff}
+.mic .sub{color:rgba(255,255,255,.75)}
+.mic ul{margin:0;padding-left:18px;color:rgba(255,255,255,.85)}
+.mic li{margin-bottom:6px}
+form{display:grid;gap:14px}
+.fl{display:grid;gap:6px;font-size:14px;font-weight:700;color:rgba(255,255,255,.8)}
+.fl input,.fl select{font:inherit;font-weight:500;padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;width:100%}
+.fl select option{color:var(--ink)}
+.fl input::placeholder{color:rgba(255,255,255,.5)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:14px;font-weight:700;padding:7px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--peach);color:var(--dusk);border-color:var(--peach)}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.okm{background:rgba(255,198,163,.15);border:1px solid var(--peach);border-radius:18px;padding:20px}
+.okm h3{margin:0 0 4px;font-family:var(--display);font-size:24px;color:var(--peach)}
+.okm p{margin:0;color:rgba(255,255,255,.85)}
+
+.pass{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;background:linear-gradient(120deg,var(--peach),#ffdcc7 50%,#e4dcff);border-radius:28px;padding:36px}
+.pass .pr{font-family:var(--display);font-weight:800;font-size:56px;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.pass .pr small{font-family:var(--body);font-size:16px;font-weight:500;color:var(--muted)}
+.pass ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.pass li{display:flex;gap:10px;align-items:baseline}
+.pass li::before{content:"✦";color:var(--coral);font-size:14px}
+
+.bring{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.bring div{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.bring b{font-family:var(--display);font-size:18px}
+.bring p{margin:4px 0 0;color:var(--muted);font-size:15px}
+
+footer{background:var(--dusk);color:rgba(255,255,255,.7);padding-block:28px;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer b{color:var(--peach)}
+
+@media (max-width:860px){
+  .nl{display:none}
+  .stop{grid-template-columns:72px 1fr}
+  .stop .btn{grid-column:1 / -1}
+  .flow{grid-template-columns:1fr 1fr}
+  .flow div:nth-child(3){border-left:0}
+  .flow div:nth-child(n+3){border-top:1px solid var(--line)}
+  .mic,.pass{grid-template-columns:1fr;padding:24px}
+  .bring{grid-template-columns:1fr}
+}
+@media (max-width:440px){ .r2{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="demo"><div class="wrap">SAMPLE WEBSITE by The Sanatan Studio · <a href="https://thesanatanstudio.com" style="color:inherit;text-decoration:underline">Get a website like this for your event →</a></div></div>
+
+<header class="hero" id="top">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="#top">naam<i>.</i>jam</a>
+      <div class="nl"><a href="#tour">Tour</a><a href="#mic">Open mic</a><a href="#pass">Jam Pass</a></div>
+      <a class="btn b-coral mini" href="#tour">Find your city</a>
+    </nav>
+    <div class="hin">
+      <div class="eb">Sunset Kirtan Tour · Winter 2027</div>
+      <h1>Sing as the sun goes down</h1>
+      <p>Rooftop kirtan jams with acoustic guitars, a cajón, a harmonium and a hundred strangers who leave as friends. Four cities, every Sunday.</p>
+      <div class="ctas"><a class="btn b-coral" href="#tour">Book a rooftop</a><a class="btn b-glass" href="#mic">Bring your instrument</a></div>
+      <div class="counter">
+        <span><b>23</b>jams hosted</span><span><b>4,800+</b>people sang with us</span><span><b>96%</b>come back again</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="tour"><div class="wrap">
+  <h2>Tour dates</h2>
+  <p class="sub">Each jam is capped at 120 people so everyone can hear themselves sing.</p>
+  <div class="tabs" role="group" aria-label="Filter by city" id="tabs">
+    <button class="tab" aria-pressed="true" data-c="all">All cities</button>
+    <button class="tab" aria-pressed="false" data-c="Bengaluru">Bengaluru</button>
+    <button class="tab" aria-pressed="false" data-c="Pune">Pune</button>
+    <button class="tab" aria-pressed="false" data-c="Hyderabad">Hyderabad</button>
+    <button class="tab" aria-pressed="false" data-c="Mumbai">Mumbai</button>
+  </div>
+  <div class="tour" id="tour-list"></div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2>One evening, four parts</h2>
+  <p class="sub">Show up a little early. The light at 5:30 is the whole point.</p>
+  <div class="flow">
+    <div><span class="tm">5:00</span><b>Chai and settle in</b><p>Cushions, masala chai, meet the people around you.</p></div>
+    <div><span class="tm">5:30</span><b>Sunset kirtan</b><p>Slow call-and-response as the sky changes colour.</p></div>
+    <div><span class="tm">6:30</span><b>Open jam</b><p>Musicians from the crowd join in. Tempo goes up.</p></div>
+    <div><span class="tm">7:30</span><b>Silence and prasad</b><p>Five quiet minutes, then sweets and goodbyes.</p></div>
+  </div>
+</div></section>
+
+<section id="mic" style="padding-top:0"><div class="wrap mic">
+  <div>
+    <h2>Play at the next jam</h2>
+    <p class="sub">We save four slots in every city for musicians from the community. You play one bhajan, your way.</p>
+    <ul>
+      <li>Any instrument, any style, beginners welcome</li>
+      <li>We shortlist from your Instagram or a voice note</li>
+      <li>Selected players get free entry and a reel of their set</li>
+    </ul>
+  </div>
+  <div>
+    <form id="mf" novalidate>
+      <div class="r2">
+        <label class="fl" for="mn">Name<input id="mn" placeholder="Ishita" autocomplete="given-name"></label>
+        <label class="fl" for="mc">City
+          <select id="mc"><option>Bengaluru</option><option>Pune</option><option>Hyderabad</option><option>Mumbai</option></select>
+        </label>
+      </div>
+      <div class="fl"><span>What do you play?</span>
+        <div class="chips" id="chips">
+          <button type="button" class="chip" aria-pressed="false">Guitar</button>
+          <button type="button" class="chip" aria-pressed="true">Vocals</button>
+          <button type="button" class="chip" aria-pressed="false">Harmonium</button>
+          <button type="button" class="chip" aria-pressed="false">Cajón</button>
+          <button type="button" class="chip" aria-pressed="false">Flute</button>
+          <button type="button" class="chip" aria-pressed="false">Ukulele</button>
+        </div>
+      </div>
+      <label class="fl" for="mig">Instagram or YouTube link<input id="mig" placeholder="@yourhandle"></label>
+      <p id="merr" role="alert" style="margin:0;color:var(--peach);font-weight:700;font-size:14px" hidden></p>
+      <button class="btn b-coral" type="submit">Apply for a slot</button>
+    </form>
+    <div class="okm" id="mok" hidden><h3>Application in 🎶</h3><p id="mokt"></p></div>
+  </div>
+</div></section>
+
+<section id="pass" style="padding-top:0"><div class="wrap pass">
+  <div>
+    <h2>Jam Pass</h2>
+    <p class="sub" style="color:var(--ink)">For people who keep coming back. One pass, every Sunday jam in your city.</p>
+    <div class="pr">₹999 <small>/ month</small></div>
+    <p style="margin:14px 0 18px;color:var(--muted);font-size:15px">Single jam ticket is ₹449. The pass pays for itself by your third Sunday.</p>
+    <a class="btn b-dark" href="#tour">Start my Jam Pass</a>
+  </div>
+  <ul>
+    <li>Entry to all 4 Sunday jams in your city</li>
+    <li>Book 48 hours before everyone else</li>
+    <li>Bring one friend free each month</li>
+    <li>Members-only WhatsApp with live recordings</li>
+    <li>Naam Jam tote on your first jam</li>
+  </ul>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2>What to bring</h2>
+  <div class="bring" style="margin-top:22px">
+    <div><b>A shawl or hoodie</b><p>Rooftops get breezy once the sun sets.</p></div>
+    <div><b>Your voice</b><p>Lyrics are on printed cards and on screen. No one judges the off notes.</p></div>
+    <div><b>An instrument, maybe</b><p>Kartals and shakers are welcome in the open jam.</p></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>naam.jam · All names, venues and numbers on this page are samples</span>
+  <span>Website by <b>The Sanatan Studio</b> · <a href="https://thesanatanstudio.com" style="color:inherit">thesanatanstudio.com</a></span>
+</div></footer>
+
+<script>
+(function(){
+  var stops=[
+    {c:"Bengaluru",d:"10",m:"Jan",v:"Skyline Terrace, Indiranagar",p:"₹449",s:"few",l:"18 spots left"},
+    {c:"Pune",d:"17",m:"Jan",v:"The Open Deck, Baner",p:"₹449",s:"open",l:"Booking open"},
+    {c:"Hyderabad",d:"24",m:"Jan",v:"Cloud Nine Rooftop, Jubilee Hills",p:"₹449",s:"open",l:"Booking open"},
+    {c:"Mumbai",d:"31",m:"Jan",v:"Sea Breeze Terrace, Bandra",p:"₹549",s:"wait",l:"Waitlist only"},
+    {c:"Bengaluru",d:"07",m:"Feb",v:"Skyline Terrace, Indiranagar",p:"₹449",s:"open",l:"Booking open"},
+    {c:"Pune",d:"14",m:"Feb",v:"The Open Deck, Baner",p:"₹449",s:"open",l:"Booking open"}
+  ];
+  var list=document.getElementById("tour-list");
+  function render(c){
+    list.innerHTML="";
+    var rows=stops.filter(function(s){return c==="all"||s.c===c});
+    if(!rows.length){list.innerHTML='<p class="empty">No dates here yet. Join the waitlist and we will tell you first.</p>';return}
+    rows.forEach(function(s){
+      var el=document.createElement("div");el.className="stop";
+      el.innerHTML='<div class="dt"><b>'+s.d+'</b><span>'+s.m+' · Sun</span></div><div><h3>'+s.c+'</h3><p>'+s.v+' · 5:00 PM · '+s.p+'</p><span class="st '+s.s+'">'+s.l+'</span></div>'+
+        '<button class="btn '+(s.s==="wait"?"b-dark":"b-coral")+' mini" type="button">'+(s.s==="wait"?"Join waitlist":"Book "+s.p)+'</button>';
+      el.querySelector("button").addEventListener("click",function(){this.textContent=s.s==="wait"?"Added to waitlist (demo)":"Seat held (demo)";this.disabled=true;});
+      list.appendChild(el);
+    });
+  }
+  render("all");
+  document.querySelectorAll("#tabs .tab").forEach(function(t){
+    t.addEventListener("click",function(){
+      document.querySelectorAll("#tabs .tab").forEach(function(x){x.setAttribute("aria-pressed","false")});
+      t.setAttribute("aria-pressed","true");render(t.dataset.c);
+    });
+  });
+
+  document.querySelectorAll("#chips .chip").forEach(function(c){
+    c.addEventListener("click",function(){c.setAttribute("aria-pressed",c.getAttribute("aria-pressed")==="true"?"false":"true")});
+  });
+  var mf=document.getElementById("mf"),merr=document.getElementById("merr");
+  mf.addEventListener("submit",function(e){e.preventDefault();
+    var n=document.getElementById("mn").value.trim(),ig=document.getElementById("mig").value.trim();
+    var inst=[].slice.call(document.querySelectorAll('#chips .chip[aria-pressed="true"]')).map(function(c){return c.textContent});
+    if(!n){merr.textContent="Add your name so we know who to call up.";merr.hidden=false;return}
+    if(!inst.length){merr.textContent="Pick at least one instrument, or Vocals.";merr.hidden=false;return}
+    if(!ig){merr.textContent="Add an Instagram or YouTube link so we can hear you.";merr.hidden=false;return}
+    merr.hidden=true;
+    document.getElementById("mokt").textContent=n+" · "+inst.join(", ")+" · "+document.getElementById("mc").value+". This is a demo. On the live site, the team reviews applications every Wednesday and replies on WhatsApp.";
+    mf.hidden=true;document.getElementById("mok").hidden=false;});
+})();
+</script>
+</body>
+</html>

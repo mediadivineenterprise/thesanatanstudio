@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Harinaam Sandhya Pune · Sample by The Sanatan Studio</title>
+<meta name="description" content="Sample bhajan sandhya event website with passes, booking and WhatsApp group. Built by The Sanatan Studio.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#141238">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Harinaam Sandhya Pune · Sample website">
+<meta property="og:description" content="Sample bhajan sandhya event website with passes, booking and WhatsApp group. Built by The Sanatan Studio.">
+<meta property="og:url" content="https://demos.thesanatanstudio.com/sandhya/">
+<meta property="og:image" content="https://demos.thesanatanstudio.com/sandhya/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%238e1f2c'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23e8902a' font-family='serif'%3E%E0%A5%90%3C/text%3E%3C/svg%3E">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@400;500;700&display=swap">
+<style>
+/* Layout: an evening-sky event page. Next event first, then passes, artists, past evenings, FAQ. */
+:root{
+  --night:#141238; --night-2:#1e1b4f; --dusk:#2c2770;
+  --marigold:#f5a524; --marigold-soft:#ffd27a; --rose:#e8638c;
+  --text:#f3f0ff; --muted:#b9b4e0; --line:rgba(255,255,255,.12);
+  --display:"Rozha One", "Tiro Devanagari Hindi", Georgia, serif;
+  --body:"Mukta", "Segoe UI", system-ui, sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--night);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:var(--marigold-soft)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.demo{background:var(--marigold);color:var(--night);font-size:13px;font-weight:700;text-align:center;padding-block:6px;letter-spacing:.04em}
+.demo .wrap{padding-block:0}
+nav{border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px;flex-wrap:wrap}
+.logo{font-family:var(--display);font-size:24px;color:var(--marigold-soft);text-decoration:none}
+.logo small{display:block;font-family:var(--body);font-size:12px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;line-height:1}
+.navlinks{display:flex;gap:18px;flex-wrap:wrap;font-size:15px}
+.navlinks a{color:var(--muted);text-decoration:none}
+.navlinks a:hover,.navlinks a:focus-visible{color:var(--text)}
+
+.hero{background:radial-gradient(120% 90% at 80% 0%, var(--dusk) 0%, var(--night-2) 45%, var(--night) 100%);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .9fr;gap:40px;padding-block:56px 64px;align-items:center}
+.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;
+  background:radial-gradient(circle, rgba(245,165,36,.35), rgba(245,165,36,0) 70%);pointer-events:none}
+.eyebrow{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--marigold)}
+.hi{font-family:var(--display);color:var(--marigold-soft);font-size:22px;margin:6px 0 0}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(40px,7vw,72px);line-height:1.02;margin:8px 0 16px;text-wrap:balance}
+.lede{color:var(--muted);max-width:52ch;margin:0 0 24px}
+.facts{display:flex;flex-wrap:wrap;gap:10px 22px;margin:0 0 28px;padding:0;list-style:none;font-size:15px}
+.facts b{color:var(--text)}
+.facts li{color:var(--muted)}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:700;text-decoration:none;border:0;cursor:pointer;font:inherit;font-weight:700}
+.btn-main{background:var(--marigold);color:var(--night)}
+.btn-main:hover{background:var(--marigold-soft)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--marigold)}
+.btn:focus-visible,input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--marigold-soft);outline-offset:3px}
+
+.count{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:18px;padding:26px;position:relative;z-index:1}
+.count h2{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 14px;font-weight:500}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center}
+.cd div{background:var(--night);border-radius:12px;padding:12px 4px}
+.cd b{display:block;font-family:var(--display);font-size:34px;font-weight:400;color:var(--marigold-soft);font-variant-numeric:tabular-nums;line-height:1.1}
+.cd span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.seats{margin-top:20px;font-size:14px;color:var(--muted)}
+.bar{height:8px;background:var(--night);border-radius:8px;margin-top:8px;overflow:hidden}
+.bar i{display:block;height:100%;width:62%;background:linear-gradient(90deg,var(--rose),var(--marigold))}
+
+section{padding-block:64px}
+section + section{border-top:1px solid var(--line)}
+h2.sec{font-family:var(--display);font-weight:400;font-size:clamp(30px,4.5vw,42px);margin:0 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 32px;max-width:60ch}
+
+.passes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pass{border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px;background:var(--night-2)}
+.pass.feat{border-color:var(--marigold);background:linear-gradient(180deg,rgba(245,165,36,.12),var(--night-2) 60%)}
+.pass h3{margin:0;font-size:19px}
+.price{font-family:var(--display);font-size:38px;color:var(--marigold-soft);line-height:1;font-variant-numeric:tabular-nums}
+.price small{font-family:var(--body);font-size:14px;color:var(--muted)}
+.pass ul{margin:0;padding-left:18px;color:var(--muted);font-size:15px;flex:1}
+.tag{align-self:flex-start;font-size:12px;font-weight:700;background:var(--marigold);color:var(--night);padding:2px 10px;border-radius:999px}
+
+.book{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+form{display:grid;gap:14px}
+label{font-size:14px;color:var(--muted);display:grid;gap:6px}
+input,select{background:var(--night-2);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font:inherit;width:100%}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px dashed var(--line);padding-top:12px}
+.total b{font-family:var(--display);font-size:30px;color:var(--marigold-soft);font-weight:400;font-variant-numeric:tabular-nums}
+.ok{background:rgba(245,165,36,.12);border:1px solid var(--marigold);border-radius:14px;padding:20px}
+.ok h3{margin:0 0 6px;font-family:var(--display);font-weight:400;font-size:26px;color:var(--marigold-soft)}
+.ok p{margin:0;color:var(--muted)}
+.ticket{margin-top:14px;font-size:15px;border-top:1px dashed var(--line);padding-top:12px;font-variant-numeric:tabular-nums}
+.side h3{margin:0 0 10px;font-size:18px}
+.side ol{margin:0 0 24px;padding-left:20px;color:var(--muted)}
+.side li{margin-bottom:6px}
+.wa{border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:10px}
+.wa p{margin:0;color:var(--muted);font-size:15px}
+.num{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.num code{font-family:var(--body);font-size:18px;font-weight:700;letter-spacing:.03em;user-select:all}
+.mini{padding:8px 14px;font-size:14px}
+
+.artists{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.artist{display:flex;gap:14px;align-items:center;padding:16px;border-radius:14px;background:var(--night-2)}
+.av{flex:none;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-size:24px;color:var(--night);background:var(--marigold)}
+.artist:nth-child(2) .av{background:var(--rose)}
+.artist:nth-child(3) .av{background:var(--marigold-soft)}
+.artist h3{margin:0;font-size:17px}
+.artist p{margin:0;color:var(--muted);font-size:14px}
+
+.set{display:grid;grid-template-columns:repeat(2,1fr);gap:4px 32px;margin:28px 0 0;padding:0;list-style:none;counter-reset:s}
+.set li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.set li span:last-child{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+.past{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ph{aspect-ratio:4/5;max-width:100%;border-radius:14px;padding:14px;display:flex;flex-direction:column;justify-content:flex-end;
+  background:radial-gradient(circle at 50% 30%, rgba(245,165,36,.55), rgba(245,165,36,0) 45%), linear-gradient(180deg,var(--dusk),var(--night-2))}
+.ph:nth-child(2){background:radial-gradient(circle at 30% 35%, rgba(232,99,140,.5), rgba(232,99,140,0) 45%), linear-gradient(180deg,var(--dusk),var(--night-2))}
+.ph:nth-child(3){background:radial-gradient(circle at 70% 25%, rgba(255,210,122,.5), rgba(255,210,122,0) 45%), linear-gradient(180deg,var(--night-2),var(--dusk))}
+.ph:nth-child(4){background:radial-gradient(circle at 40% 40%, rgba(245,165,36,.4), rgba(245,165,36,0) 50%), linear-gradient(180deg,var(--night-2),var(--night))}
+.ph b{font-size:16px}
+.ph span{font-size:13px;color:var(--muted)}
+.quote{margin:28px 0 0;padding:22px 24px;border-left:3px solid var(--marigold);background:var(--night-2);border-radius:0 14px 14px 0;max-width:70ch}
+.quote p{margin:0 0 6px;font-size:18px}
+.quote cite{color:var(--muted);font-style:normal;font-size:14px}
+
+details{border-bottom:1px solid var(--line);padding:16px 0}
+summary{cursor:pointer;font-weight:500;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";color:var(--marigold);font-size:22px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);margin:10px 0 0;max-width:65ch}
+
+footer{border-top:1px solid var(--line);padding-block:32px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer b{color:var(--marigold-soft)}
+
+.sticky{position:fixed;left:0;right:0;bottom:0;background:var(--night-2);border-top:1px solid var(--line);display:none;
+  padding:10px max(16px, env(safe-area-inset-left, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-right, 0px));z-index:5}
+.sticky .btn{width:100%;justify-content:center}
+
+@media (max-width:860px){
+  .hero .wrap,.book{grid-template-columns:1fr}
+  .passes,.artists{grid-template-columns:1fr}
+  .past{grid-template-columns:repeat(2,1fr)}
+  .set{grid-template-columns:1fr}
+  .navlinks{display:none}
+  .sticky{display:block}
+  footer{padding-bottom:96px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="demo"><div class="wrap">SAMPLE WEBSITE by The Sanatan Studio · <a href="https://thesanatanstudio.com" style="color:inherit;text-decoration:underline">Get a website like this for your event →</a></div></div>
+
+<nav><div class="wrap">
+  <a class="logo" href="#top">Harinaam Sandhya<small>Pune · Monthly bhajan evenings</small></a>
+  <div class="navlinks">
+    <a href="#passes">Passes</a><a href="#artists">Artists</a><a href="#past">Past evenings</a><a href="#faq">FAQ</a>
+  </div>
+  <a class="btn btn-main mini" href="#book">Book pass</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div>
+    <div class="eyebrow">Next evening · Saturday</div>
+    <p class="hi">॥ श्याम भजन संध्या ॥</p>
+    <h1>Shyam Bhajan Sandhya</h1>
+    <p class="lede">Three hours of Khatu Shyam bhajans with live dholak, harmonium and the full sangat singing along. Prasad for every guest. Families welcome.</p>
+    <ul class="facts">
+      <li><b>30 Jan 2027</b> · Saturday</li>
+      <li><b>6:30 PM</b> to 9:30 PM</li>
+      <li><b>Shri Krishna Sabhagriha</b>, Kothrud</li>
+    </ul>
+    <div class="btns">
+      <a class="btn btn-main" href="#book">Book your pass</a>
+      <a class="btn btn-ghost" href="#whatsapp">Join WhatsApp group</a>
+    </div>
+  </div>
+  <aside class="count" aria-label="Countdown">
+    <h2>Bhajan begins in</h2>
+    <div class="cd" id="cd">
+      <div><b id="d">--</b><span>Days</span></div>
+      <div><b id="h">--</b><span>Hours</span></div>
+      <div><b id="m">--</b><span>Min</span></div>
+      <div><b id="s">--</b><span>Sec</span></div>
+    </div>
+    <div class="seats"><span><b style="color:var(--text)">186</b> of 300 passes booked</span><div class="bar"><i></i></div></div>
+  </aside>
+</div></header>
+
+<main>
+<section id="passes"><div class="wrap">
+  <h2 class="sec">Choose your pass</h2>
+  <p class="sub">Entry is open to all. Donor passes help cover the hall, sound and prasad, and come with reserved seating.</p>
+  <div class="passes">
+    <div class="pass">
+      <h3>Sangat</h3>
+      <div class="price">Free <small>/ RSVP needed</small></div>
+      <ul><li>Open floor seating on durries</li><li>Prasad after aarti</li><li>Entry pass on WhatsApp</li></ul>
+      <button class="btn btn-ghost" data-pick="free">Reserve free spot</button>
+    </div>
+    <div class="pass feat">
+      <span class="tag">Most chosen</span>
+      <h3>Seva Pass</h3>
+      <div class="price">₹501 <small>/ person</small></div>
+      <ul><li>Reserved chair seating</li><li>Name in the seva list read at aarti</li><li>Prasad box to take home</li></ul>
+      <button class="btn btn-main" data-pick="seva">Book Seva Pass</button>
+    </div>
+    <div class="pass">
+      <h3>Yajman Family</h3>
+      <div class="price">₹2,100 <small>/ family of 4</small></div>
+      <ul><li>Front-row family seating</li><li>Join the stage for maha-aarti</li><li>Special prasad and photo</li></ul>
+      <button class="btn btn-ghost" data-pick="yajman">Book family pass</button>
+    </div>
+  </div>
+</div></section>
+
+<section id="book"><div class="wrap book">
+  <div>
+    <h2 class="sec">Book in one minute</h2>
+    <p class="sub">Your pass arrives on WhatsApp with a QR code for the gate.</p>
+    <form id="f" novalidate>
+      <label for="nm">Full name<input id="nm" required placeholder="e.g. Meera Kulkarni" autocomplete="name"></label>
+      <div class="row2">
+        <label for="ph">WhatsApp number<input id="ph" required inputmode="numeric" placeholder="10-digit mobile" maxlength="10"></label>
+        <label for="ct">City area<input id="ct" placeholder="Kothrud" autocomplete="address-level2"></label>
+      </div>
+      <div class="row2">
+        <label for="pt">Pass type
+          <select id="pt">
+            <option value="free">Sangat · Free</option>
+            <option value="seva" selected>Seva Pass · ₹501</option>
+            <option value="yajman">Yajman Family · ₹2,100</option>
+          </select>
+        </label>
+        <label for="qt">How many<input id="qt" type="number" min="1" max="10" value="2"></label>
+      </div>
+      <div class="total"><span>Total</span><b id="tot">₹1,002</b></div>
+      <p id="err" role="alert" style="margin:0;color:var(--rose);font-size:14px" hidden></p>
+      <button class="btn btn-main" type="submit" style="justify-content:center">Confirm booking</button>
+    </form>
+    <div class="ok" id="ok" hidden>
+      <h3>Jai Shri Shyam! 🙏</h3>
+      <p>This is a demo, so nothing was charged. On the live site, payment opens in UPI and the pass is sent to WhatsApp automatically.</p>
+      <div class="ticket" id="tk"></div>
+    </div>
+  </div>
+  <div class="side">
+    <h3>What happens after you book</h3>
+    <ol>
+      <li>Pay by UPI, GPay or card on a secure page</li>
+      <li>Pass with QR code arrives on WhatsApp</li>
+      <li>Reminder the day before, with venue map</li>
+      <li>Photos and bhajan recordings shared after the evening</li>
+    </ol>
+    <div class="wa" id="whatsapp">
+      <h3 style="margin:0">Never miss a Sandhya</h3>
+      <p>1,200+ devotees get dates, venues and live links in our WhatsApp group. No spam, one message a week.</p>
+      <div class="num"><code id="wanum">+91 90000 00000</code><button class="btn btn-ghost mini" id="cp" type="button">Copy number</button></div>
+      <a class="btn btn-main mini" href="https://wa.me/910000000000" target="_blank" rel="noopener" style="justify-self:start">Open WhatsApp</a>
+    </div>
+  </div>
+</div></section>
+
+<section id="artists"><div class="wrap">
+  <h2 class="sec">Who is singing</h2>
+  <p class="sub">Our regular mandali with a guest bhajan gayak each month.</p>
+  <div class="artists">
+    <div class="artist"><div class="av">रा</div><div><h3>Rajesh Agarwal</h3><p>Lead vocals · Shyam bhajans</p></div></div>
+    <div class="artist"><div class="av">स</div><div><h3>Sakshi Joshi</h3><p>Guest gayika · Meera bhajans</p></div></div>
+    <div class="artist"><div class="av">मं</div><div><h3>Harinaam Mandali</h3><p>Dholak, harmonium, kartal · 8 members</p></div></div>
+  </div>
+  <ul class="set" aria-label="Evening programme">
+    <li><span>Deep prajwalan and Ganesh vandana</span><span>6:30 PM</span></li>
+    <li><span>Shyam bhajans, first set</span><span>6:45 PM</span></li>
+    <li><span>Meera bhajans with guest gayika</span><span>7:45 PM</span></li>
+    <li><span>Sangat sankirtan, everyone sings</span><span>8:30 PM</span></li>
+    <li><span>Maha-aarti</span><span>9:10 PM</span></li>
+    <li><span>Prasad vitran</span><span>9:30 PM</span></li>
+  </ul>
+</div></section>
+
+<section id="past"><div class="wrap">
+  <h2 class="sec">Past evenings</h2>
+  <p class="sub">Eighteen Sandhyas since 2025, from community halls to temple courtyards.</p>
+  <div class="past">
+    <div class="ph"><b>Deepotsav Sandhya</b><span>Nov 2026 · 410 devotees</span></div>
+    <div class="ph"><b>Sawan Shiv Bhajan</b><span>Aug 2026 · 280 devotees</span></div>
+    <div class="ph"><b>Guru Purnima Kirtan</b><span>Jul 2026 · 350 devotees</span></div>
+    <div class="ph"><b>Monsoon Meera Night</b><span>Jun 2026 · 190 devotees</span></div>
+  </div>
+  <blockquote class="quote">
+    <p>Booking took a minute and the pass came straight on WhatsApp. My parents loved the reserved seats.</p>
+    <cite>Priya D., attended Deepotsav Sandhya (sample review)</cite>
+  </blockquote>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <h2 class="sec">Questions</h2>
+  <details><summary>Can I bring children and elders?</summary><p>Yes. Chairs are reserved for Seva and Yajman passes, and there is lift access to the hall.</p></details>
+  <details><summary>Is there parking?</summary><p>Two-wheeler parking inside the premises and car parking on the lane behind the hall.</p></details>
+  <details><summary>Can I offer seva without attending?</summary><p>Yes. Choose a Seva Pass and mention it in the WhatsApp chat. Your name is still read at aarti.</p></details>
+  <details><summary>Do you organise Sandhyas for housing societies or temples?</summary><p>Yes. Send us the date and expected crowd on WhatsApp and we share options within a day.</p></details>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>Harinaam Sandhya, Pune · All names and numbers on this page are samples</span>
+  <span>Website by <b>The Sanatan Studio</b> · <a href="https://thesanatanstudio.com" style="color:inherit">thesanatanstudio.com</a></span>
+</div></footer>
+
+<div class="sticky"><a class="btn btn-main" href="#book">Book pass · 30 Jan</a></div>
+
+<script>
+(function(){
+  var target = new Date("2027-01-30T18:30:00+05:30").getTime();
+  var el = {d:document.getElementById("d"),h:document.getElementById("h"),m:document.getElementById("m"),s:document.getElementById("s")};
+  function pad(n){return String(n).padStart(2,"0")}
+  function tick(){
+    var diff = Math.max(0, target - Date.now());
+    el.d.textContent = Math.floor(diff/864e5);
+    el.h.textContent = pad(Math.floor(diff/36e5)%24);
+    el.m.textContent = pad(Math.floor(diff/6e4)%60);
+    el.s.textContent = pad(Math.floor(diff/1e3)%60);
+  }
+  tick(); setInterval(tick,1000);
+
+  var prices = {free:0, seva:501, yajman:2100};
+  var labels = {free:"Sangat (Free)", seva:"Seva Pass", yajman:"Yajman Family"};
+  var pt = document.getElementById("pt"), qt = document.getElementById("qt"), tot = document.getElementById("tot");
+  function fmt(n){return n===0 ? "Free" : "₹" + n.toLocaleString("en-IN")}
+  function calc(){ var q = Math.min(10, Math.max(1, parseInt(qt.value,10)||1)); tot.textContent = fmt(prices[pt.value]*q); return q; }
+  pt.addEventListener("change", calc); qt.addEventListener("input", calc); calc();
+
+  document.querySelectorAll("[data-pick]").forEach(function(b){
+    b.addEventListener("click", function(){
+      pt.value = b.getAttribute("data-pick"); calc();
+      document.getElementById("book").scrollIntoView({behavior:"smooth"});
+      setTimeout(function(){document.getElementById("nm").focus({preventScroll:true})}, 400);
+    });
+  });
+
+  var f = document.getElementById("f"), err = document.getElementById("err");
+  f.addEventListener("submit", function(e){
+    e.preventDefault();
+    var nm = document.getElementById("nm").value.trim(), ph = document.getElementById("ph").value.trim();
+    if(!nm){ err.textContent = "Please enter your name so we can print it on the pass."; err.hidden = false; return; }
+    if(!/^[6-9]\d{9}$/.test(ph)){ err.textContent = "Enter a 10-digit Indian mobile number, without +91."; err.hidden = false; return; }
+    err.hidden = true;
+    var q = calc(), code = "HS-" + Math.floor(1000 + Math.random()*9000);
+    document.getElementById("tk").innerHTML =
+      "<b>" + nm.replace(/</g,"&lt;") + "</b> · " + labels[pt.value] + " × " + q +
+      "<br>Total " + fmt(prices[pt.value]*q) + " · Pass no. " + code + "<br>30 Jan 2027, 6:30 PM · Shri Krishna Sabhagriha";
+    f.hidden = true; document.getElementById("ok").hidden = false;
+  });
+
+  var cp = document.getElementById("cp");
+  cp.addEventListener("click", function(){
+    var t = document.getElementById("wanum").textContent;
+    function done(){ cp.textContent = "Copied"; setTimeout(function(){cp.textContent="Copy number"},1600); }
+    try{
+      navigator.clipboard.writeText(t).then(done, function(){ selectNum(); });
+    }catch(e){ selectNum(); }
+    function selectNum(){ var r=document.createRange(); r.selectNodeContents(document.getElementById("wanum")); var s=getSelection(); s.removeAllRanges(); s.addRange(r); cp.textContent="Selected, press copy"; }
+  });
+})();
+</script>
+</body>
+</html>
